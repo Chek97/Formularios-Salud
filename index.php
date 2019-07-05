@@ -1,10 +1,4 @@
-<?php 
-
-
-
- ?>
-
- <!doctype html>
+<!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -17,12 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-        </style>
+
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
 
@@ -32,7 +21,10 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    
+
+    <!--
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -53,11 +45,10 @@
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
-        </div><!--/.navbar-collapse -->
+        </div>
       </div>
     </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
         <h1>Hello, world!</h1>
@@ -67,7 +58,7 @@
     </div>
 
     <div class="container">
-      <!-- Example row of columns -->
+       Example row of columns 
       <div class="row">
         <div class="col-md-4">
           <h2>Heading</h2>
@@ -79,18 +70,21 @@
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
        </div>
-      </div>
+      </div>    
 
+     -->
       <?php 
-        require_once('controlador/usuarios_controlador.php');
+        require_once('vista/vista_login.php');
 
 
        ?>
 
       <hr>
-
-      <footer>
-        <p>&copy; Company 2015</p>
+      <div>
+        Redes sociales
+      </div>
+      <footer class="panel-footer panel-custom">
+          <p align="center">&copy; Proyectamos S.A.S 2019</p>
       </footer>
     </div> <!-- /container -->        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

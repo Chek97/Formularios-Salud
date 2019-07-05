@@ -18,11 +18,15 @@
 
 	<?php 
 
+		/*
+
 		foreach ($listaUsuarios as $registro) {
 			
 			echo $registro['usuario'];
 			echo "<br>";
 		}
+
+		*/
 
 
 
