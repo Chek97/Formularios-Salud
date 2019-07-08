@@ -78,15 +78,7 @@
 
 
        ?>
-
-      <hr>
-      <div>
-        Redes sociales
-      </div>
-      <footer class="panel-footer panel-custom">
-          <p align="center">&copy; Proyectamos S.A.S 2019</p>
-      </footer>
-    </div> <!-- /container -->        
+         <!-- /container -->        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 

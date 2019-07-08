@@ -4,7 +4,7 @@
    Author's custom styles
    ========================================================================== */
 body{
-	background-color: #B2D4E8;;
+	
 }
 
 
@@ -12,12 +12,12 @@ body{
   overflow: hidden;
   width: 500px;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  border-radius: 4px;
+  background-color:#f1f1f1;
 }
 
 .tab button {
   background-color: inherit;
-  float: left;
   border: none;
   outline: none;
   cursor: pointer;
@@ -47,6 +47,72 @@ body{
 	width: 500px;
 	background-color: white;
 	margin: 0 auto;
+}
+
+.footer-redes{
+
+  height: 200px;
+}
+
+hr{
+  margin-bottom: 0;
+}
+
+.contenedor-titulo{
+  text-align: center;
+  margin-bottom: 20px;
+
+}
+
+h1{
+  font-size: 40px;
+}
+
+.form-registro{
+  padding-top: 10px;
+  text-align: center;
+}
+
+.footer-redesSociales{
+  text-align: center; 
+  padding: 20px;
+}
+
+.redes-iconos{
+  list-style-type: none;
+}
+
+.redes-iconos li{
+  display: inline;
+  margin-left: 10px;
+}
+
+.navbar-personalizado{
+  background-color: blue;
+  border-radius: 0;
+}
+
+.link-personalizado{
+  color: white;
+  text-shadow: none;
+}
+
+.link-personalizado:hover{
+  color:white;
+}
+
+.nav-personalizado>li>a{
+  color: white;
+  text-shadow: none;  
+}
+
+.nav-personalizado>li>a:hover{
+  color: black;
+  background-color: white;
+}
+
+.app-bar{
+  background-color: white;
 }
 
 
