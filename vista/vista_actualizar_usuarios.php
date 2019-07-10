@@ -1,3 +1,29 @@
+<?php 
+
+	require_once("../modelo/usuarios_modelo.php");
+
+	$insUsuario = new Usuarios_modelo();
+
+	if(isset($_POST['btnActualizar'])){
+		$inputId = $_POST['actId'];
+		$inputUsuario = $_POST['actUsu'];
+		$inputNombre = $_POST['actNom'];
+		$inputApellido = $_POST['actApe'];
+		$inputCorreo = $_POST['actCorr'];
+		$inputCelular = $_POST['actCel'];
+		$inputContraseña = $_POST['actCon'];
+		$inputFecha = $_POST['actFecha'];
+
+		if($insUsuario->actualizarUsuarios($inputId, $inputUsuario, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha)==true){
+			echo "Se actualizaron los datos";
+		}else{
+			echo "Algo no se actualizo";
+		}
+
+
+	}
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +52,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
-					<li><a href="#">Formularios</a></li>
+					<li><a href="vista_admin_formulario.php">Formularios</a></li>
 					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
 					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
@@ -43,42 +69,83 @@
 			</div>
 		</div>
 	</nav>
+
+	<?php 
+	
+		if(!isset($_POST['btnActualizar'])){
+
+			$nombreId = $_GET['id'];
+
+			$nombreUsuario = $_GET['usuario'];
+			$nombreNombre = $_GET['nombre'];
+			$nombreApellido = $_GET['apellido'];
+			$nombreCorreo = $_GET['correo'];
+			$nombreCelular = $_GET['celular'];
+			$nombreContraseña = $_GET['contraseña'];
+			$nombreFecha = $_GET['fecha'];
+
+		}else{
+
+			$nombreId = $_POST['actId'];
+
+			$nombreUsuario = $_POST['actUsu'];
+			$nombreNombre = $_POST['actNom'];
+			$nombreApellido = $_POST['actApe'];
+			$nombreCorreo = $_POST['actCorr'];
+			$nombreCelular = $_POST['actCel'];
+			$nombreContraseña = $_POST['actCon'];
+			$nombreFecha = $_POST['actFecha'];
+
+		}
+
+			
+
+		
+		//$listaDatos = $insUsuario->obtener_usuario($nombreUsuario);
+
+		//foreach ($listaDatos as $fil) {
+			
+		
+	 ?>
 	<div class="container">
 		<div style="background-color: gray;">
 			<div style="text-align: center; padding: 20px; margin: 20px;">
 				<h1>Actualizar Usuario:</h1>
 			</div>
-			<div >
-				<form style="padding: 10px;">
+			<div>
+				<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" style="padding: 10px;">
 				<div class="form-group">
-					<label>Usuario</label>
-					<input type="text" name="" class="form-control">
+					<input type="text" name="actId" class="hidden" value="<?php echo $nombreId; ?>">
+				</div>	
+				<div class="form-group">
+					<input type="text" name="actUsu" class="form-control" value="<?php echo $nombreUsuario; ?>">
 				</div>
 				<div class="form-group">
 					<label>Nombre</label>
-					<input type="text" name="" class="form-control">
+					<input type="text" name="actNom" class="form-control" value="<?php echo $nombreNombre; ?>">
 				</div>
 				<div class="form-group">
 					<label>Apellido</label>
-					<input type="text" name="" class="form-control">
+					<input type="text" name="actApe" class="form-control" value="<?php echo $nombreApellido; ?>">
 				</div>
 				<div class="form-group">
 					<label>Correo</label>
-					<input type="email" name="" class="form-control">
+					<input type="email" name="actCorr" class="form-control" value="<?php echo $nombreCorreo; ?>">
 				</div>
 				<div class="form-group">
 					<label>Celular</label>
-					<input type="text" name="" class="form-control">
+					<input type="text" name="actCel" class="form-control" value="<?php echo $nombreCelular; ?>">
 				</div>
 				<div class="form-group">
 					<label>Contraseña</label>
-					<input type="password" name="" class="form-control">
+					<input type="password" name="actCon" class="form-control" value="<?php echo $nombreContraseña; ?>">
 				</div>
 				<div class="form-group">
 					<label>Fecha</label>
-					<input type="text" name="" class="form-control">
+					<input type="date" name="actFecha" class="form-control" value="<?php echo $nombreFecha; ?>">
 				</div>
-				<input type="submit" class="btn btn-primary" value="Actualizar" name="">
+			<?php //} ?>	
+				<input type="submit" class="btn btn-primary" value="Actualizar" name="btnActualizar">
 			</form>
 			</div>
 		</div>

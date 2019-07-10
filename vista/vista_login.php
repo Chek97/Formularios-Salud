@@ -16,18 +16,16 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-
-		<div class="contenedor-titulo">
-			<h1><span><a href="#">logo</a></span>FORMULARIOS SALUTOGENESIS</h1>
-		</div> 
-		<div class="perfil-registro">
-			<div class="tab">
-				<button class="tablinks" onclick="openCity(event, 'Admin')">Administrador</button>
-  				<button class="tablinks" onclick="openCity(event, 'Usuario')">Usuario</button>
-  				<button class="tablinks" onclick="openCity(event, 'Encuestado')">Encuestado</button>
-			</div>
-
-			<div id="Admin" class="tabcontent">
+				 	<div class="contenedor-titulo">
+						<h1><span><a href="#">logo</a></span>FORMULARIOS SALUTOGENESIS</h1>
+					</div> 
+					<div class="perfil-registro">
+						<div class="tab">
+							<button class="tablinks" onclick="openCity(event, 'Admin')">Administrador</button>
+  							<button class="tablinks" onclick="openCity(event, 'Usuario')">Usuario</button>
+  							<button class="tablinks" onclick="openCity(event, 'Encuestado')">Encuestado</button>
+						</div>
+						<div id="Admin" class="tabcontent">
 				<form action="controlador/sesion_controlador.php" method="post"  class="formulario">
 					<?php 
 						if(isset($_GET['error'])){
@@ -94,7 +92,9 @@
 					<p>No tienes una cuenta? <a href="#">Registrate</a></p>
 				</div>
 			</div>
-		</div>
+				 	</div>
+				 
+	
 		<hr>
       	<div class="footer-redes">
       		<div class="container">

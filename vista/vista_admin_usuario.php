@@ -8,6 +8,24 @@
 	$usuario = new Usuario();
 	//$musuario = new Usuarios_modelo();
 
+	if(isset($_POST['btnRegistrar'])){
+		$inputUsuario = $_POST['regUsu'];
+		$inputNombre = $_POST['regNom'];
+		$inputApellido = $_POST['regApe'];
+		$inputCorreo = $_POST['regCorr'];
+		$inputCelular = $_POST['regCel'];
+		$inputContraseña = $_POST['regContra'];
+		$inputFecha = $_POST['regFecha'];
+		$inputSexo = $_POST['regSexo'];
+
+		if($oUsuarios->crearUsuario($inputUsuario, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha, $inputSexo)==true){
+			echo "El usuario fue agregado exitosamente";
+			header("location: vista_admin_usuario.php");
+		}else{
+			echo "Algo no salio bien";
+		}
+	}
+
 
  ?>
 
@@ -39,7 +57,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
-					<li><a href="#">Formularios</a></li>
+					<li><a href="vista_admin_formulario.php">Formularios</a></li>
 					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
 					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
@@ -49,7 +67,7 @@
 							<ul class="dropdown-menu">
 								<li><a href="">Acerca de</a></li>
 								<li><a href="">Mi perfil</a></li>
-								<li><a href="">Salir</a></li>
+								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
 							</ul>
 					</li>
 				</ul>
@@ -81,6 +99,8 @@
 						</tr>
 						</thead>
 						<?php 
+
+							
 							$sesion = $sessionUsuario->getSession();
 
 							//$listaUsuarios = $musuario->get_usuarios();
@@ -99,7 +119,7 @@
 					<td><?php echo $registro['contraseña']; ?></td>
 					<td><?php echo $registro['fecha']; ?></td>
 					<td><?php echo $registro['sexo']; ?></td>
-					<td><a href="vista_actualizar_usuarios.php?valor=<?php echo $registro['usuario']; ?>"><button class="btn btn-success">Actualizar</button></a></td>
+					<td><a href="vista_actualizar_usuarios.php?id=<?php echo $registro['idUsuario'] ?>&usuario=<?php echo $registro['usuario']; ?>&nombre=<?php echo $registro['nombre']; ?>&apellido=<?php echo $registro['apellido'] ?>&correo=<?php echo $registro['correo'] ?>&celular=<?php echo $registro['celular'] ?>&contraseña=<?php echo $registro['contraseña'] ?>&fecha=<?php echo $registro['fecha'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
 					<td><button class="btn btn-danger" data-toggle="modal" data-target="#borrar">Borrar</button></td>
 							
 					</tr>
@@ -122,7 +142,7 @@
 								<h3>Crear Nuevo Usuario</h3>
 							</div>
 							<div class="modal-body">
-								<form class="">
+								<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 									<div class="form-group">
 										<label>Usuario</label>
 										<div class="input-group">
@@ -176,15 +196,16 @@
 										<label>Sexo</label>
 										<br>
 										<label>
-											<input type="radio" name=""> Masculino
-											<input type="radio" name=""> Femenino
+											<input type="radio" name="regSexo" value="Masculino"> Masculino
+											<input type="radio" name="regSexo" value="Femenino"> Femenino
 										</label>
 										</div>
-									
+									<div class="form-group">
+										<input type="submit" class="btn btn-success" name="btnRegistrar" value="Aceptar">
+									</div>
 								</form>
 							</div>
 							<div class="modal-footer">
-									<button class="btn btn-success">Aceptar</button>
 									<button class="btn btn-default" data-dismiss="modal">Cancelar</button>
 
 							</div>

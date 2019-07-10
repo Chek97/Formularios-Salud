@@ -10,10 +10,10 @@ body{
 
 .tab {
   overflow: hidden;
-  width: 500px;
+  width: 400px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color:#f1f1f1;
+  background-color: #00CC2C;
 }
 
 .tab button {
@@ -27,17 +27,19 @@ body{
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: green;
+  color: white;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: green;
+  color: white;
 }
 
 .tabcontent {
   display: none;
-  width: 500px;
+  width: 400px;
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
@@ -52,6 +54,8 @@ body{
 .footer-redes{
 
   height: 200px;
+  background-color: blue;
+  color: white;
 }
 
 hr{
@@ -113,6 +117,11 @@ h1{
 
 .app-bar{
   background-color: white;
+}
+
+.panel-footer{
+
+  background-color: black-blue;
 }
 
 

@@ -31,6 +31,50 @@
 			return $this->usuarios;
 		}
 
+		public function get_id($usuario){
+
+			$consulta1 = $this->db->query("SELECT * from usuario WHERE usuario='$usuario'");
+
+			$resultado = $consulta1->fetch(PDO::FETCH_ASSOC);
+
+			return $resultado['idUsuario']; 
+		}
+
+		public function obtener_usuario($nombre){
+			$consulta2 = $this->db->query("SELECT * FROM usuario WHERE usuario='$nombre'");
+
+			while ($filas = $consulta2->fetch(PDO::FETCH_ASSOC)) {
+				
+				$this->usuarios[] = $filas;
+			}
+
+			return $this->usuarios;
+		}
+
+		public function actualizarUsuarios($id, $usu, $nom, $ape, $corr, $cel, $cont, $fec){
+
+			$consulta3 = $this->db->query("UPDATE usuario SET usuario='$usu', nombre='$nom', apellido='$ape', correo='$corr', celular='$cel', contraseña='$cont', fecha='$fec' WHERE idUsuario='$id'");
+
+			if($consulta3->rowCount()){
+				return true;
+			}else{
+				return false;
+			}
+
+		}
+
+		public function crearUsuario($usu, $nom, $ape, $corr, $cel, $cont, $fec, $sex){
+
+			$consulta4 = $this->db->query("INSERT INTO usuario VALUES(NULL,'$usu','$nom','$ape','$corr','$cel','$cont','$fec','$sex','')");
+
+			if($consulta4->rowCount()){
+				return true;
+			}else{
+				return false;
+			}
+
+		}
+
 	}
 
 

@@ -1,3 +1,13 @@
+<?php 
+
+	include_once("../controlador/formularios_controlador.php");
+	include_once("../modelo/usuarios_modelo.php");
+	include_once("../controlador/sesion_controlador.php");
+	include_once("../modelo/formularios_modelo.php");
+
+	$Um = new Usuarios_modelo();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +46,7 @@
 							<ul class="dropdown-menu">
 								<li><a href="vista_acerca.php">Acerca de</a></li>
 								<li><a href="vista_perfil.php">Mi perfil</a></li>
-								<li><a href="../salir_controlador.php">Salir</a></li>
+								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
 							</ul>
 					</li>
 				</ul>
@@ -44,15 +54,79 @@
 		</div>
 	</nav>
 	<div class="container">
-		<div class="table-responsive">
-			<table class="table table-bordered">
-				<?php 
+				<?php
 
-					include_once("../controlador/formularios_controlador.php");
+				if(isset($_POST['crear-form'])){
 
- 				?>
-			</table>
-		</div>
+				$tituloForm = $_POST['titulo'];
+				$descripcionForm = $_POST['descripcion'];
+
+				$obtenerSe = $sessionUsuario->getSession();
+				$idUsuario = $Um->get_id($obtenerSe);
+
+				if ($oFormularios->crearFormulario($tituloForm, $descripcionForm, $idUsuario)) {
+					echo "Se agrego un nuevo formulario";
+				}else{
+					echo "algo no salio bien";
+					}
+				} 
+			?>
+
+			<!--Arreglar la forma de que aparezca un mensaje cuando no tenga formularios-->
+			<?php 
+				/*
+
+				if($oFormularios->obtenerFormulariospropios($Um->get_id($sessionUsuario->getSession()))==false){
+				echo "<div style='border: 1px solid; height: 100px; text-align: center;'>No hay datos que mostrar Ingresa unos nuevos</div><br>";
+			}else{
+				?>
+				
+				<?php } ?>
+				*/
+			 ?>
+
+			<div class="table-responsive">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Titulo</th>
+										<th>Descripcion</th>
+										<th>Numero Preguntas</th>
+										<th>Votos</th>
+										<th colspan="3">Opciones</th>
+									</tr>
+								</thead>
+								<?php 
+
+							//$listaUsuarios = $musuario->get_usuarios();
+
+							$idUsuario1 = $Um->get_id($sessionUsuario->getSession());	
+							$listaForms = $oFormularios->obtenerFormulariospropios($idUsuario1);
+							foreach ($listaForms as $registro ) {
+								
+							
+						 ?>
+					<tr>
+					<td><?php echo $registro['idFormularios']; ?></td>
+					<td><?php echo $registro['nombre']; ?></td>
+					<td><?php echo $registro['descripcion']; ?></td>
+					<td><?php echo $registro['numeroPregunta']; ?></td>
+					<td><?php echo $registro['voto']; ?></td>
+					<td><a href="vista_actualizar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&titulo=<?php echo $registro['nombre'] ?>&descripcion=<?php echo $registro['descripcion'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
+					<td><a href="../controlador/eliminar_formulario.php"></a><button class="btn btn-danger" data-toggle="modal" data-target="#borrar">Borrar</button></td>
+					<td><a href="vista_crearPreguntas.php?id=<?php echo $registro['idFormularios'] ?>"><button class="btn btn-info">Crear Preguntas</button></a></td>
+							
+					</tr>
+
+						 <?php 
+						 	}
+						 	
+						  ?>
+							</table>	
+						</div>			
+		 
+		
 		<div style="text-align: center;">
 			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#crearPregunta">Crear Formulario</button>
 		</div>
@@ -66,20 +140,20 @@
 								<h3>Crear Nuevo Formulario</h3>
 							</div>
 							<div class="modal-body">
-								<form>
+								<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
 									<div class="form-group">
 										<label>Titulo</label>
-										<input type="text" name="">
+										<input type="text" name="titulo" class="form-control">
 									</div>
 									<div class="form-group">
 										<label>Descripcion</label>
-										<textarea></textarea>
+										<textarea name="descripcion" class="form-control"></textarea>
 									</div>
-								</form>
+									<input class="btn btn-success" type="submit" name="crear-form" value="Aceptar">
+									</form>
 							</div>
 								
-							<div class="modal-footer">
-									<button class="btn btn-success">Aceptar</button>
+							<div class="modal-footer">	
 									<button class="btn btn-default" data-dismiss="modal">Cancelar</button>
 
 							</div>
