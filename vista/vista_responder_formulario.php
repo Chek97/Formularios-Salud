@@ -3,9 +3,9 @@
 	require_once("../modelo/formularios_modelo.php");
 	include_once("../controlador/preguntas_controlador.php");
 	include_once("../controlador/opciones_controlador.php");
-
 	$contador = 1;
 	$contadorPreg = 1;
+
 
 
  ?>

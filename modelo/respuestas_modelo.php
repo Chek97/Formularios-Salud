@@ -13,9 +13,9 @@
 
 		}
 
-		public function insertarRespuestas($respuesta, $pregunta){
+		public function insertarRespuestas($respuesta, $pregunta, $usuario){
 
-			$instruccion1 = $this->db->query("INSERT INTO respuestas VALUES(NULL, '$respuesta', '$pregunta')");
+			$instruccion1 = $this->db->query("INSERT INTO respuestas VALUES(NULL, '$respuesta', '$usuario','$pregunta')");
 
 			if($instruccion1->rowCount()){
 				return true;
