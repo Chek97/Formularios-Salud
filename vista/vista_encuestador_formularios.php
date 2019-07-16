@@ -20,6 +20,7 @@
 	<title>Formularios</title>
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
 
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -86,6 +87,16 @@
 			 ?>
 
 			<div class="table-responsive">
+				<?php 
+
+					$idUsuario1 = $Um->get_id($sessionUsuario->getSession());	
+							$listaForms = $oFormularios->obtenerFormulariospropios($idUsuario1);
+
+							if($listaForms == null){
+								echo "No hay formularios Creados";
+							}else{
+
+				 ?>
 							<table class="table table-bordered">
 								<thead>
 									<tr>
@@ -101,8 +112,9 @@
 
 							//$listaUsuarios = $musuario->get_usuarios();
 
-							$idUsuario1 = $Um->get_id($sessionUsuario->getSession());	
-							$listaForms = $oFormularios->obtenerFormulariospropios($idUsuario1);
+							
+
+
 							foreach ($listaForms as $registro ) {
 								
 							
@@ -114,8 +126,8 @@
 					<td><?php echo $registro['numeroPregunta']; ?></td>
 					<td><?php echo $registro['voto']; ?></td>
 					<td><a href="vista_actualizar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&titulo=<?php echo $registro['nombre'] ?>&descripcion=<?php echo $registro['descripcion'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
-					<td><a href="../controlador/eliminar_formulario.php"></a><button class="btn btn-danger" data-toggle="modal" data-target="#borrar">Borrar</button></td>
-					<td><a href="vista_crearPreguntas.php?id=<?php echo $registro['idFormularios'] ?>"><button class="btn btn-info">Crear Preguntas</button></a></td>
+					<td><a href="../controlador/borrar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&preguntas=<?php echo $registro['numeroPregunta'] ?>"><button class="btn btn-danger">Borrar</button></a></td>
+					<td><a href="vista_crearPreguntas.php?iden=<?php echo $registro['idFormularios']; ?>"><button class="btn btn-info">Crear Preguntas</button></a></td>
 							
 					</tr>
 
@@ -123,7 +135,8 @@
 						 	}
 						 	
 						  ?>
-							</table>	
+							</table>
+						<?php } ?>		
 						</div>			
 		 
 		

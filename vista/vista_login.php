@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
 
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -115,7 +116,7 @@
       		</div>
       	</div>
       	<footer class="panel-footer panel-custom">
-          <p align="center">&copy; Proyectamos S.A.S 2019</p>
+          <p style="text-align: center;"><h4 style="text-align: center;">&copy; Proyectamos S.A.S 2019</h4></p>
       	</footer>
 
 

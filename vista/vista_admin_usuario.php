@@ -26,6 +26,8 @@
 		}
 	}
 
+	//$sesion = $sessionUsuario->getSession();
+
 
  ?>
 
@@ -41,6 +43,7 @@
 	<title>Admin Usuarios</title>
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
 
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -65,8 +68,8 @@
 								<img src=""><span class="glyphicon glyphicon-search"></span>
 							</div>
 							<ul class="dropdown-menu">
-								<li><a href="">Acerca de</a></li>
-								<li><a href="">Mi perfil</a></li>
+								<li><a href="vista_acerca.php">Acerca de</a></li>
+								<li><a href="vista_perfil.php?usuario=<?php echo $sesion; ?>">Mi perfil</a></li>
 								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
 							</ul>
 					</li>
@@ -85,7 +88,7 @@
 				<div class="table-responsive">
 					<table class="table table-bordered">
 						<thead>
-						<tr>
+						<tr style="background-color: green; color: white;">
 							<th>ID</th>
 							<th>Usuario</th>
 							<th>Nombre</th>
@@ -130,8 +133,8 @@
 						  ?>
 					</table>
 				</div>
-				<div style="text-align: center; background-color: green;">
-						<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#crear" style="margin: 20px;">Agregar</button>
+				<div style="text-align: center; border-radius: 4px;">
+						<button class="boton-primario btn-lg" data-toggle="modal" data-target="#crear" style="margin: 20px; border-radius: 4px;">Agregar</button>
 				</div>
 
 				<div class="modal fade" id="crear">
@@ -142,7 +145,7 @@
 								<h3>Crear Nuevo Usuario</h3>
 							</div>
 							<div class="modal-body">
-								<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+								<form method="post" name="formularioUsuario" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 									<div class="form-group">
 										<label>Usuario</label>
 										<div class="input-group">
@@ -154,7 +157,7 @@
 										<label>Nombre</label>
 										<div class="input-group">
 											<div class="input-group-addon">@</div>
-											<input type="text" name="regNom" class="form-control" placeholder="Cristian">
+											<input type="text" name="regNom" required class="form-control" placeholder="Cristian">
 										</div>
 									</div>
 									<div class="form-group">
@@ -168,21 +171,21 @@
 										<label>Correo</label>
 										<div class="input-group">
 											<div class="input-group-addon">@</div>
-											<input type="email" name="regCorr" class="form-control" placeholder="555@hotmail.com">
+											<input type="email" name="regCorr" required class="form-control" placeholder="555@hotmail.com">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>Celular</label>
 										<div class="input-group">
 											<div class="input-group-addon">@</div>
-											<input type="text" name="regCel" class="form-control" placeholder="82216">
+											<input type="text" name="regCel" required class="form-control" placeholder="82216">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>Contraseña</label>
 										<div class="input-group">
 											<div class="input-group-addon">@</div>
-											<input type="password" name="regContra" class="form-control" placeholder="user15">
+											<input type="password" name="regContra" required class="form-control" placeholder="user15">
 										</div>
 									</div>
 									<div class="form-group">
@@ -207,7 +210,27 @@
 							</div>
 							<div class="modal-footer">
 									<button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+							<script type="text/javascript">
+								(function(){
+									var formulario = document.getElementsByName("formularioUsuario")[0],
+										elementos = formulario.elements,
+										boton = document.getElementById("btnRegistrar");
 
+									var validarCampo = function(e){
+										if(formulario.regUsu.value == 0){
+											alert("Inserta un valor para continuar");
+											e.preventDefault();
+										}
+
+									};
+
+									var validar = function(e){
+										validarNombre(e);
+									};
+
+									formulario.addEventListener("submit", validar);	
+								}())
+							</script>		
 							</div>
 						</div>
 					</div>

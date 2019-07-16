@@ -75,6 +75,23 @@
 
 		}
 
+		public function obtenerUltimos4(){
+			$instruccion5 = $this->db->query("SELECT * FROM usuario GROUP BY idUsuario DESC LIMIT 4");
+
+			$usuarios5 = array();
+
+			if($instruccion5->rowCount()){
+				while ($reg = $instruccion5->fetch(PDO::FETCH_ASSOC)) {
+				
+				$usuarios5[] = $reg;
+				}
+
+			}else{
+				return false;
+			}
+			return $usuarios5;
+		}
+
 	}
 
 

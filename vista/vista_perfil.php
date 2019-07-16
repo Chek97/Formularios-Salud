@@ -1,12 +1,10 @@
 <?php 
-
-	require_once("../modelo/formularios_modelo.php");
 	require_once("../modelo/usuarios_modelo.php");
-
+	include_once "../modelo/session.php";
+	$objUsuario = new usuarios_modelo();
+	$sessionUsuario = new Session();
 
  ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-	<title>Administrador</title>
+	<title>Perfil</title>
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
@@ -53,81 +51,80 @@
 			</div>
 		</div>
 	</nav>
-
 	<?php 
 
-		$objFormularios = new Formulario_modelo();
+		$session = $sessionUsuario->getSession();
 
-		$totalForms = $objFormularios->obtenerUltimos4();
+		$datosUsuario = $objUsuario->obtener_usuario($session);
 
-	?>	
 
-	<section class="seccion-formularios">
-		<div class="titulo-inicio">
-			<h1>Ultimos Formularios Creados</h1>
+	 ?>
+	<div class="contenedor-perfil">
+		<div class="contenedor-titulo">
+			<h1>Perfil</h1>
 		</div>
-		<div class="container">
-			<div class="row">
-				<?php  
-				foreach ($totalForms as $fila) {
+		<div class="contenedor-texto1">
+			<?php 
+
+			 foreach ($datosUsuario as $user) {
+			 	
+			 
+
+			 ?>
+			 <div class="form-group">
+			 	<label>Id</label>
+			 	<p><?php echo $user['idUsuario']; ?></p>
+			 </div>
+			 <div class="form-group">
+			 	<label>Usuario</label>
+			 	<p><?php echo $user['usuario']; ?></p>
+			 </div>
+			 <div class="form-group">
+			 	<label>Nombre</label>
+			 	<p><?php echo $user['nombre']; ?></p>
+			 </div>
+			 <div class="form-group">
+			 	<label>Apellido</label>
+			 	<p><?php echo $user['apellido']; ?></p>
+			 </div>
+			 <div class="form-group">
+			 	<label>Correo</label>
+			 	<p><?php echo $user['correo']; ?></p>
+			 </div>
+			 <div class="form-group">
+			 	<label>Celular</label>
+			 	<p><?php echo $user['celular']; ?></p>
+			 </div>
+			 <div class="form-group">
+			 	<label>Contraseña</label>
+			 	<p><?php echo $user['contraseña']; ?></p>
+			 </div>
+			 <div class="form-group">
+			 	<label>Fecha</label>
+			 	<p><?php echo $user['fecha']; ?></p>
+			 </div>
+			 <div class="form-group">
+			 	<label>Sexo</label>
+			 	<p><?php echo $user['sexo']; ?></p>
+			 </div>
+
+			 <?php 
+
+			 	}
+			  ?>
+
+			  <a href="vista_actualizar_usuarios.phpid=<?php echo $user['idUsuario'] ?>&usuario=<?php echo $user['usuario']; ?>&nombre=<?php echo $user['nombre']; ?>&apellido=<?php echo $user['apellido'] ?>&correo=<?php echo $user['correo'] ?>&celular=<?php echo $user['celular'] ?>&contraseña=<?php echo $user['contraseña'] ?>&fecha=<?php echo $user['fecha'] ?>"><button class="btn btn-primary">Actualizar</button></a>
 			
-		
-
-
-	 			?>
-				<div class="col-xs-12 col-md-12 col-lg-6">
-					<div class="carta-formulario">
-						<div class="carta-titulo">
-							<div class="container">
-								<h2><?php echo $fila["nombre"]; ?> <span class="glyphicon glyphicon-search carta-icono"></span></h2>
-							</div>	
-						</div>
-						<div class="carta-contenido">
-							<div class="carta-descripcion">
-								<p><?php echo $fila["descripcion"]; ?></p>
-							</div>
-							<div class="carta-preguntas">
-								<h3>Numero Preguntas: <?php echo $fila['numeroPregunta']; ?></h3>
-							</div>
-							<div class="carta-votos">
-								<h4>Votos totales: <?php echo $fila["voto"]; ?></h4>
-							</div>	
-						</div>
-					</div>
-					<!-- COLOCAR UNA GRID PARA QUE SE MUESTRE LO IMPORTANE CUANDO SEA EN MOVIL-->
-					<hr class="hidden-md hidden-lg">
-				</div>
-		 <?php  } ?>		
-				<div class="col-xs-12 col-md-12 col-lg-6">
-					<div>
-					<h2>Usuarios Recientes</h2>	
-					</div>
-					<?php 
-
-		 			$objUsuarios = new Usuarios_modelo();
-
-		 			$totalUsers = $objUsuarios->obtenerUltimos4();
-
-		 			foreach ($totalUsers as $fila1) {
-		 				
-		 			
-
-		 		 ?>
-					<div style="background-color: gray">
-						<h2><span class="glyphicon glyphicon-user"></span> <?php echo $fila1['usuario']; ?></h2>
-					</div>
-					<?php } ?>
-				</div>		
-			</div>			
 		</div>
+	</div>
 
-	</section>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
         <script src="../js/vendor/bootstrap.min.js"></script>
 
         <script src="../js/main.js"></script>
+
 </body>
 </html>

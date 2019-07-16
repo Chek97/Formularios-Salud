@@ -4,6 +4,8 @@
    Author's custom styles
    ========================================================================== */
 body{
+
+  font-family: 'Roboto', sans-serif;
 	
 }
 
@@ -70,6 +72,11 @@ hr{
 
 h1{
   font-size: 40px;
+  font-family: 'Squada One', cursive;
+}
+
+h2,h3,h4,h5,h6{
+  font-family: 'Squada One', cursive;
 }
 
 .form-registro{
@@ -102,7 +109,7 @@ h1{
 }
 
 .link-personalizado:hover{
-  color:white;
+  color: white;
 }
 
 .nav-personalizado>li>a{
@@ -124,6 +131,80 @@ h1{
   background-color: black-blue;
 }
 
+.titulo-inicio{
+  text-align: center;
+  font-family: 'Squada One', cursive;
+}
+
+.carta-formulario{
+  padding: 20px;
+  margin: 10px;
+  
+}
+
+.carta-titulo{
+  background-color: green;
+}
+
+.carta-icono{
+
+}
+
+.carta-contenido{
+  background-color: #3ffD45;
+}
+
+.carta-descripcion{
+  padding: 10px;
+}
+
+.carta-preguntas{
+  text-align: center;
+  padding: 10px;
+}
+
+.carta-votos{
+  text-align: center;
+  padding: 10px;
+}
+
+.contenedor-formulario{
+  margin-right: 40px;
+  margin-left: 40px;
+  background-color: green;
+}
+
+.contenedor-titulo{
+  text-align: center;
+  
+}
+
+.contenedor-texto{
+  padding: 10px;
+  justify-content: center;
+}
+
+.contenedor-texto1{
+  padding: 10px;
+  justify-content: center;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.contenedor-perfil{
+
+  border: 2px solid green;
+  border-radius: 4px;
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+.boton-primario{
+  background-color: #8a3e65;
+  border: none;
+  color: white;
+
+}
 
 
 

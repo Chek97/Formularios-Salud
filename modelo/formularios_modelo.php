@@ -4,6 +4,7 @@
 
 		private $db;
 		private $formularios;
+		private $preguntas;
 
 		public function __construct(){
 			//llamamos la conexion
@@ -84,6 +85,57 @@
 			}else{
 				return false;
 			}
+		}
+
+		public function getPreguntas($id){
+
+			$instruccion5 = $this->db->query("SELECT * from formularios WHERE idFormularios='$id'");
+
+			$resultado = $instruccion5->fetch(PDO::FETCH_ASSOC);
+
+			return $this->preguntas = $resultado['numeroPregunta'];
+		}
+
+		public function setNumeroPregunta($valor, $id){
+
+			$this->preguntas = $valor;
+
+			$instruccion6 = $this->db->query("UPDATE formularios SET numeroPregunta='$this->preguntas' WHERE idFormularios='$id'");
+
+			if($instruccion6->rowCount()){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+		public function obtenerUltimos4(){
+			$instruccion7 = $this->db->query("SELECT * FROM formularios GROUP BY idFormularios DESC LIMIT 4");
+
+			$usuarios4 = array();
+
+			if($instruccion7->rowCount()){
+				while ($reg = $instruccion7->fetch(PDO::FETCH_ASSOC)) {
+				
+				$usuarios4[] = $reg;
+				}
+
+			}else{
+				return false;
+			}
+			return $usuarios4;
+		}
+
+		public function borrarFormulario($id){
+
+			$instruccion8 = $this->db->query("DELETE FROM formularios WHERE idFormularios='$id'");
+
+			if($instruccion8->rowCount()){
+				return true;
+			}else{
+				return false;
+			}
+
 		}
 
 	}

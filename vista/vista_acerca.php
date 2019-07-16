@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-	<title>Encuestador</title>
+	<title>Mision</title>
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
@@ -27,15 +27,15 @@
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
-					<li><a href="vista_encuestador_formularios.php">Formularios</a></li>
-					<li><a href="#">Busqueda</a></li>
+					<li><a href="vista_admin_formulario.php">Formularios</a></li>
+					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
 					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-search"></span>
+								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
-								<li><a href="vista_acerca.php">Acerca de</a></li>
+								<li><a href="vista/acerca.php">Acerca de</a></li>
 								<li><a href="vista_perfil.php">Mi perfil</a></li>
 								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
 							</ul>
@@ -43,13 +43,32 @@
 				</ul>
 			</div>
 		</div>
-	</nav>	
+	</nav>
+
+	<div class="contenedor-formulario">
+		<div class="contenedor-titulo">
+			<h1>VISION</h1>
+		</div>
+		<div class="contenedor-texto">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		
+	</div>
+    <!-- COLOCAR EL FOOTER-->
 
 
-	<script src="../js/main.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
-    <script src="../js/vendor/bootstrap.min.js"></script>
+	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="../js/vendor/bootstrap.min.js"></script>
+
+        <script src="../js/main.js"></script>
+
 </body>
 </html>
