@@ -59,7 +59,7 @@
 
 
 	 ?>
-	<div class="contenedor-perfil">
+	<div class="contenedor-perfil contenedor-formulario">
 		<div class="contenedor-titulo">
 			<h1>Perfil</h1>
 		</div>

@@ -5,7 +5,7 @@
 	include_once "../controlador/usuarios_controlador.php";
 
 	$sessionUsuario = new Session();
-	$usuario = new Usuario();
+	$usuario = new Usuarios_modelo();
 	//$musuario = new Usuarios_modelo();
 
 	if(isset($_POST['btnRegistrar'])){
@@ -41,6 +41,7 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 	<title>Admin Usuarios</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
@@ -56,13 +57,13 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="vista_administrador.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_admin_formulario.php">Formularios</a></li>
 					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
-					<li><a href="#">Exportar</a></li>
+					<li><a href="vista_buscar.php">Busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-search"></span>
@@ -80,14 +81,14 @@
 
 	<!--TABLA DE USUARIOS-->	
 	<div class="container">
-		<div style="text-align: center; font-size: 40px;">
+		<div style="text-align: center; font-size: 40px; font-family: 'Squada One', cursive; color: white;">
 			<h1>Usuarios</h1>
 		</div>
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="table-responsive">
-					<table class="table table-bordered">
-						<thead>
+					<table class="table table-hover tabla-formulario">
+						<thead class="tabla-cabeza">
 						<tr style="background-color: green; color: white;">
 							<th>ID</th>
 							<th>Usuario</th>
@@ -107,13 +108,33 @@
 							$sesion = $sessionUsuario->getSession();
 
 							//$listaUsuarios = $musuario->get_usuarios();
+							if(isset($_GET["pagina"])){
+								if($_GET["pagina"] == 1){
+									header("location: ../vista/vista_admin_usuario.php");
+								}else{
+									$pagina = $_GET["pagina"];
+								}
+							}else{
+								$pagina = 1;
+							}
+							
+
+							$tamañoPagina = 5;
+
+							$empezar = ($pagina - 1) * $tamañoPagina;
+
+							$numFilas = $usuario->obtenerUsu();
+
+							$totalPaginas = ceil($numFilas / $tamañoPagina);
+
+							$listaUsuarios = $oUsuarios->get_usuarios($empezar, $tamañoPagina);
 
 							foreach ($listaUsuarios as $registro ) {
 								
 							
 						 ?>
-					<tr>
-					<td><?php echo $registro['idUsuario']; ?></td>
+					<tr class="tabla-elementos">
+					<td style="font-size: 20px; font-family: 'Squada One', cursive;"><?php echo $registro['idUsuario']; ?></td>
 					<td id="nombreUsu"><?php echo $registro['usuario']; ?></td>
 					<td><?php echo $registro['nombre']; ?></td>
 					<td><?php echo $registro['apellido']; ?></td>
@@ -133,6 +154,20 @@
 						  ?>
 					</table>
 				</div>
+				<?php 
+
+		
+
+	
+
+		for($i = 1; $i<=$totalPaginas; $i++){
+
+			echo "<a href='?pagina=" . $i . "'>". $i . "</a>";
+
+		}
+
+
+ ?>	
 				<div style="text-align: center; border-radius: 4px;">
 						<button class="boton-primario btn-lg" data-toggle="modal" data-target="#crear" style="margin: 20px; border-radius: 4px;">Agregar</button>
 				</div>
@@ -149,49 +184,49 @@
 									<div class="form-group">
 										<label>Usuario</label>
 										<div class="input-group">
-											<div class="input-group-addon">@</div>
+											<div class="input-group-addon caja"><span class="glyphicon glyphicon-user"></span></div>
 											<input type="text" name="regUsu" class="form-control" placeholder="Cris12">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>Nombre</label>
 										<div class="input-group">
-											<div class="input-group-addon">@</div>
+											<div class="input-group-addon caja"><span class="glyphicon glyphicon-pencil"></span></div>
 											<input type="text" name="regNom" required class="form-control" placeholder="Cristian">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>Apellido</label>
 										<div class="input-group">
-											<div class="input-group-addon">@</div>
+											<div class="input-group-addon caja"><span class="glyphicon glyphicon-pencil"></div>
 											<input type="text" name="regApe" class="form-control" placeholder="Checa">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>Correo</label>
 										<div class="input-group">
-											<div class="input-group-addon">@</div>
+											<div class="input-group-addon caja"><span class="glyphicon glyphicon-envelope"></span></div>
 											<input type="email" name="regCorr" required class="form-control" placeholder="555@hotmail.com">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>Celular</label>
 										<div class="input-group">
-											<div class="input-group-addon">@</div>
+											<div class="input-group-addon caja"><span class="glyphicon glyphicon-pencil"></div>
 											<input type="text" name="regCel" required class="form-control" placeholder="82216">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>Contraseña</label>
 										<div class="input-group">
-											<div class="input-group-addon">@</div>
+											<div class="input-group-addon caja"><span class="glyphicon glyphicon-pencil"></div>
 											<input type="password" name="regContra" required class="form-control" placeholder="user15">
 										</div>
 									</div>
 									<div class="form-group">
 										<label>Fecha</label>
 										<div class="input-group">
-											<div class="input-group-addon">@</div>
+											<div class="input-group-addon caja"><span class="glyphicon glyphicon-calendar"></span></div>
 											<input type="date" name="regFecha" class="form-control">
 										</div>
 									</div>
@@ -204,12 +239,12 @@
 										</label>
 										</div>
 									<div class="form-group">
-										<input type="submit" class="btn btn-success" name="btnRegistrar" value="Aceptar">
+										<input type="submit" class="btn boton-ejec" name="btnRegistrar" value="Aceptar">
 									</div>
 								</form>
 							</div>
 							<div class="modal-footer">
-									<button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+									<button class="btn " data-dismiss="modal">Cancelar</button>
 							<script type="text/javascript">
 								(function(){
 									var formulario = document.getElementsByName("formularioUsuario")[0],
@@ -237,11 +272,32 @@
 				</div>
 		</div>
 	</div>
+</div>
+
+
+
 	<script src="../js/main.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
     <script src="../js/vendor/bootstrap.min.js"></script>
+
+ <div class="footer-principal">
+         <div class="footer-iconos">
+           <p>Siguenos en: </p>
+           <div class="menu-footer">
+             <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
+               <li><a href="#"><span class="icon-instagram"> Instagram</a></li>
+        		<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
+        		<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
+        		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
+              </ul>
+            </div>
+         </div>
+         <div class="panel-footer">
+           <h3>Proyectamos S.A.S 2019</h3>
+         </div>
+       </div>   
 
 </body>
 </html>

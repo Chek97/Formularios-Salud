@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 	<title>Admin Formularios</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
@@ -27,20 +28,20 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="vista_administrador.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_admin_formulario.php">Formularios</a></li>
 					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
-					<li><a href="#">Exportar</a></li>
+					<li><a href="vista_buscar.php">Busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-search"></span>
 							</div>
 							<ul class="dropdown-menu">
-								<li><a href="">Acerca de</a></li>
-								<li><a href="">Mi perfil</a></li>
+								<li><a href="vista_acerca.php">Acerca de</a></li>
+								<li><a href="vista_perfil.php">Mi perfil</a></li>
 								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
 							</ul>
 					</li>
@@ -49,10 +50,13 @@
 		</div>
 	</nav>
 	<div class="container">
-		<div class="table-responsive">
-			<table class="table table-bordered">
-				<thead>
-					<tr style="background-color: green;">
+		<div style="text-align: center; font-size: 40px; font-family: 'Squada One', cursive; color: white;">
+			<h1>Formularios</h1>
+		</div>
+		<div class="table-responsive" style="border-radius: 4px;">
+			<table class="table tabla-formulario table-hover">
+				<thead class="tabla-cabeza">
+					<tr class="cabeza-titulo">
 						<th>Id</th>
 						<th>Titulo</th>
 						<th>Descripcion</th>
@@ -66,13 +70,31 @@
 
 					$insFormulario = new Formulario_modelo();
 
-					$listaForm = $insFormulario->get_formularios();
+					if(isset($_GET["pagina"])){
+								if($_GET["pagina"] == 1){
+									header("location: ../vista/vista_admin_usuario.php");
+								}else{
+									$pagina = $_GET["pagina"];
+								}
+						}else{
+							$pagina = 1;
+						}
+
+						$tamañoPagina = 5;
+
+		$empezar = ($pagina - 1) * $tamañoPagina;
+
+		$numFilas = $insFormulario->obtenerForms();
+
+		$totalPaginas = ceil($numFilas / $tamañoPagina);
+
+					$listaForm = $insFormulario->get_formularios($empezar, $tamañoPagina);
 
 					foreach ($listaForm as $fila ) {
 
 				 ?>
-				 <tr>
-				 	<td><?php echo $fila['idFormularios']; ?></td>
+				 <tr class="tabla-elementos">
+				 	<td style="font-size: 20px; font-family: 'Squada One', cursive;"><?php echo $fila['idFormularios']; ?></td>
 				 	<td><?php echo $fila['nombre']; ?></td>
 				 	<td><?php echo $fila['descripcion']; ?></td>
 				 	<td><?php echo $fila['numeroPregunta']; ?></td>
@@ -83,7 +105,41 @@
 				<?php } ?>
 			</table>
 		</div>
+	<?php 
+		//PAGINACION
+
+	
+
+		for($i = 1; $i<=$totalPaginas; $i++){
+
+			echo "<a href='?pagina=" . $i . "'>". $i . "</a>";
+
+		}
+
+
+
+
+
+	 ?>	
 	</div>
+
+
+	<div class="footer-principal">
+         <div class="footer-iconos">
+           <p>Siguenos en: </p>
+           <div class="menu-footer">
+             <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
+               <li><a href="#"><span class="icon-instagram"> Instagram</a></li>
+        		<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
+        		<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
+        		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
+              </ul>
+            </div>
+         </div>
+         <div class="panel-footer">
+           <h3>Proyectamos S.A.S 2019</h3>
+         </div>
+       </div>
  
  	<script src="../js/main.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

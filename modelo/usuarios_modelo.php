@@ -19,9 +19,9 @@
 		}
 
 		//Metodo get
-		public function get_usuarios(){
+		public function get_usuarios($empezar, $tamaño){
 
-			$consulta = $this->db->query("SELECT * FROM usuario");
+			$consulta = $this->db->query("SELECT * FROM usuario LIMIT $empezar,$tamaño");
 
 			while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
 				
@@ -90,6 +90,20 @@
 				return false;
 			}
 			return $usuarios5;
+		}
+
+		public function obtenerUsu(){
+
+			$consulta9 = $this->db->query("SELECT * FROM usuario");
+
+			if($consulta9->rowCount()){
+				return $consulta9->rowCount();
+				
+
+			}else{
+				return false;
+			}
+
 		}
 
 	}

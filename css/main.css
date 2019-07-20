@@ -6,15 +6,16 @@
 body{
 
   font-family: 'Roboto', sans-serif;
+  background-color: #bf7fbf;
 	
 }
 
 
 .tab {
   overflow: hidden;
-  width: 400px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 495px;
+  border: 2px solid green;
+  border-radius: 5px;
   background-color: #00CC2C;
 }
 
@@ -23,6 +24,7 @@ body{
   border: none;
   outline: none;
   cursor: pointer;
+  font-size: 16px;
   padding: 14px 16px;
   transition: 0.3s;
 }
@@ -40,28 +42,27 @@ body{
 }
 
 .tabcontent {
+  box-shadow: 10px 10px #503c42;
   display: none;
-  width: 400px;
+  width: 490px;
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
 } 
 
 .perfil-registro{
-	width: 500px;
+	width: 490px;
 	background-color: white;
 	margin: 0 auto;
+  border-radius: 5px;
 }
 
-.footer-redes{
-
-  height: 200px;
-  background-color: blue;
-  color: white;
-}
 
 hr{
   margin-bottom: 0;
+  border: 1px solid #503c42;
 }
 
 .contenedor-titulo{
@@ -84,22 +85,14 @@ h2,h3,h4,h5,h6{
   text-align: center;
 }
 
-.footer-redesSociales{
-  text-align: center; 
-  padding: 20px;
-}
 
-.redes-iconos{
-  list-style-type: none;
-}
 
-.redes-iconos li{
-  display: inline;
-  margin-left: 10px;
-}
+
+
+
 
 .navbar-personalizado{
-  background-color: blue;
+  background-color: #2d2de5;
   border-radius: 0;
 }
 
@@ -117,6 +110,8 @@ h2,h3,h4,h5,h6{
   text-shadow: none;  
 }
 
+
+
 .nav-personalizado>li>a:hover{
   color: black;
   background-color: white;
@@ -126,36 +121,53 @@ h2,h3,h4,h5,h6{
   background-color: white;
 }
 
-.panel-footer{
+/*.panel-footer{
 
-  background-color: black-blue;
+  background-color: #0d1275;
+  color: white;
 }
+
+*/
 
 .titulo-inicio{
   text-align: center;
   font-family: 'Squada One', cursive;
+  color: white;
 }
 
 .carta-formulario{
-  padding: 20px;
   margin: 10px;
+  box-shadow: 10px 10px #503c42;
+
   
 }
 
 .carta-titulo{
   background-color: green;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+
 }
 
-.carta-icono{
-
+.carta-enlace{
+  color: #3ffD45;
 }
+
+.carta-enlace:hover{
+  color: white; 
+}
+
 
 .carta-contenido{
   background-color: #3ffD45;
+  
 }
 
 .carta-descripcion{
-  padding: 10px;
+  padding: 15px;
+  text-align: center;
+  
 }
 
 .carta-preguntas{
@@ -204,6 +216,133 @@ h2,h3,h4,h5,h6{
   border: none;
   color: white;
 
+}
+
+.boton-ejec{
+  background-color: #8a3e65;
+}
+
+.boton-ejec:hover{
+  color: white;
+}
+
+.footer-principal{
+
+  background-color: #2d2de5;
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.footer-iconos{
+  padding-top: 10px;
+  color: white;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+}
+
+.menu-footer{
+  text-align: center;
+  padding-left: 10px; 
+  padding-right: 10px;
+  display: inline-block;
+}
+
+.menu-redes>li>a{
+  color: white;
+  width: 250px;          
+}
+
+.menu-redes>li>a:hover{
+  background-color: #0000cc;
+  border: none;
+}
+
+.panel-footer{
+  background-color: #0000cc;
+  color: white;
+  border: none;
+}
+
+/*CARTA DE USUARIOS */
+
+.carta-usuario{
+  background-color: #2d2de5;
+  margin: 15px;
+  box-shadow: 10px 10px #503c42;
+  border-radius: 25px;
+  
+}
+
+.carta-usuario-titulo{
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0000cc;
+
+}
+
+.carta-usuario-contenido{
+  padding: 20px;
+  color: white;
+}
+
+.carta-enlace1{
+  color: white;
+}
+
+.carta-enlace1:hover{
+  color: white;
+}
+
+
+.tabla-formulario{
+  background-color: white;
+  box-shadow: 10px 10px #503c42;
+  border: 2px solid #503c42;
+
+}
+
+.tabla-cabeza{
+  background-color: green;
+  padding: 10px;
+  border: 2px solid  green;
+  font-family: 'Squada One', cursive;
+  font-size: 20px;
+
+
+}
+
+.cabeza-titulo{
+  
+  color: white;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.modal-header{
+  background-color: #2d2de5;
+  color: white;
+}
+
+.caja{
+  background-color: #2d2de5;
+  color: white;
+}
+
+.contenedor-formulario{
+
+  background-color: white;
+  padding: 10px; 
+  border-radius: 5px;
+  box-shadow: 10px 10px #503c42;
+  margin-bottom: 20px;
+  
+}
+
+.contenedor-titulo{
+  text-align: center;
 }
 
 

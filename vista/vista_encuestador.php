@@ -23,7 +23,7 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="vista_encuestador.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
@@ -32,7 +32,7 @@
 					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-search"></span>
+								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
 								<li><a href="vista_acerca.php">Acerca de</a></li>

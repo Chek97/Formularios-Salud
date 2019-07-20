@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 	<title>Formularios</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
@@ -55,6 +56,9 @@
 		</div>
 	</nav>
 	<div class="container">
+		<div class="contenedor-titulo" style="color: white;">
+			<h1>Formularios Creados</h1>
+		</div>
 				<?php
 
 				if(isset($_POST['crear-form'])){
@@ -66,9 +70,9 @@
 				$idUsuario = $Um->get_id($obtenerSe);
 
 				if ($oFormularios->crearFormulario($tituloForm, $descripcionForm, $idUsuario)) {
-					echo "Se agrego un nuevo formulario";
+					echo "<div class='alert alert-info'>Se agrego un nuevo formulario </div>";
 				}else{
-					echo "algo no salio bien";
+					echo "<div class='alert alert-danger'>algo no salio bien</div>";
 					}
 				} 
 			?>
@@ -97,9 +101,9 @@
 							}else{
 
 				 ?>
-							<table class="table table-bordered">
-								<thead>
-									<tr>
+							<table class="table table-hover tabla-formulario">
+								<thead class="tabla-cabeza">
+									<tr style="color: white;">
 										<th>Id</th>
 										<th>Titulo</th>
 										<th>Descripcion</th>
@@ -127,7 +131,7 @@
 					<td><?php echo $registro['voto']; ?></td>
 					<td><a href="vista_actualizar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&titulo=<?php echo $registro['nombre'] ?>&descripcion=<?php echo $registro['descripcion'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
 					<td><a href="../controlador/borrar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&preguntas=<?php echo $registro['numeroPregunta'] ?>"><button class="btn btn-danger">Borrar</button></a></td>
-					<td><a href="vista_crearPreguntas.php?iden=<?php echo $registro['idFormularios']; ?>"><button class="btn btn-info">Crear Preguntas</button></a></td>
+					<td><a href="vista_crearPreguntas.php?iden=<?php echo $registro['idFormularios']; ?>"><button class="btn boton-primario">Crear Preguntas</button></a></td>
 							
 					</tr>
 
@@ -141,7 +145,7 @@
 		 
 		
 		<div style="text-align: center;">
-			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#crearPregunta">Crear Formulario</button>
+			<button class="btn boton-ejec btn-lg" data-toggle="modal" data-target="#crearPregunta">Crear Formulario</button>
 		</div>
 	</div>
 
@@ -162,7 +166,7 @@
 										<label>Descripcion</label>
 										<textarea name="descripcion" class="form-control"></textarea>
 									</div>
-									<input class="btn btn-success" type="submit" name="crear-form" value="Aceptar">
+									<input class="btn boton-ejec" type="submit" name="crear-form" value="Aceptar">
 									</form>
 							</div>
 								
@@ -174,7 +178,22 @@
 					</div>
 				</div>
 
-
+	<div class="footer-principal" style="margin-top: 40px;">
+         <div class="footer-iconos">
+           <p>Siguenos en: </p>
+           <div class="menu-footer">
+             <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
+               <li><a href="#"><span class="icon-instagram"> Instagram</a></li>
+        		<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
+        		<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
+        		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
+              </ul>
+            </div>
+         </div>
+         <div class="panel-footer">
+           <h3>Proyectamos S.A.S 2019</h3>
+         </div>
+       </div>
 
 
 	<script src="../js/main.js"></script>

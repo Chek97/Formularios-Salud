@@ -17,9 +17,9 @@
 		}
 
 		//Metodo get
-		public function get_formularios(){
+		public function get_formularios($empezar, $tamaño){
 
-			$consulta = $this->db->query("SELECT * FROM formularios");
+			$consulta = $this->db->query("SELECT * FROM formularios LIMIT $empezar, $tamaño");
 
 			if($consulta->rowCount()){
 				while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
@@ -132,6 +132,20 @@
 
 			if($instruccion8->rowCount()){
 				return true;
+			}else{
+				return false;
+			}
+
+		}
+
+		public function obtenerForms(){
+
+			$consulta9 = $this->db->query("SELECT * FROM formularios");
+
+			if($consulta9->rowCount()){
+				return $consulta9->rowCount();
+				
+
 			}else{
 				return false;
 			}

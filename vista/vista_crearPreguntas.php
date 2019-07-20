@@ -55,6 +55,7 @@
 									}
 								}
 							}
+							header("location: vista_encuestador_formularios.php");
 						}else{
 							echo "Si se inserto pero no sumo a la pregunta";
 						}
@@ -141,6 +142,7 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 	<title>Crear Preguntas</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
@@ -179,10 +181,10 @@
 	</nav>
 
 	<div class="container">
-		<div>
+		<div class="contenedor-titulo" style="color: white;">
 			<h1>Crea Una Pregunta</h1>
 		</div>
-		<div>
+		<div class="contenedor-formulario">
 			<form name="formularioUsuario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 				<div class="form-group">
 					<input type="text" name="Id" class="hidden" value="<?php echo $idFormulario; ?>">
@@ -250,7 +252,7 @@
 				</div>				
 			</div>
 			<div style="width: 100%; text-align: center;">
-				<input type="submit" name="btnCrear" id="btnCrear" value="Crear" class="btn btn-primary btn-lg">
+				<input type="submit" name="btnCrear" id="btnCrear" value="Crear Pregunta" class="btn boton-ejec btn-lg">
 			</div>
 			</form>
 				</div>
@@ -294,6 +296,23 @@
 								}())
 			</script>	
 		</div>
+
+	<div class="footer-principal">
+         <div class="footer-iconos">
+           <p>Siguenos en: </p>
+           <div class="menu-footer">
+             <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
+               <li><a href="#"><span class="icon-instagram"> Instagram</a></li>
+        		<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
+        		<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
+        		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
+              </ul>
+            </div>
+         </div>
+         <div class="panel-footer">
+           <h3>Proyectamos S.A.S 2019</h3>
+         </div>
+       </div>	
 
 
 

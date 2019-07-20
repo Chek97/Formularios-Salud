@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 	<title>Formularios</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet">  
@@ -28,12 +29,11 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="vista_usuarios.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_usuarios_formularios.php">Formularios</a></li>
-					<li><a href="#">Busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-search"></span>
@@ -50,9 +50,9 @@
 	</nav>
 	<div class="container">
 		<div class="table-responsive">
-			<table class="table table-bordered">
+			<table class="table table-hover tabla-formulario">
 				<thead>
-					<tr>
+					<tr class="tabla-cabeza" style="color: white;">
 						<th>Id</th>
 						<th>Titulo</th>
 						<th>Descripcion</th>
@@ -66,7 +66,25 @@
 
 					$insFormulario = new Formulario_modelo();
 
-					$listaForm = $insFormulario->get_formularios();
+					if(isset($_GET["pagina"])){
+								if($_GET["pagina"] == 1){
+									header("location: ../vista/vista_admin_usuario.php");
+								}else{
+									$pagina = $_GET["pagina"];
+								}
+						}else{
+							$pagina = 1;
+						}
+
+						$tamañoPagina = 5;
+
+		$empezar = ($pagina - 1) * $tamañoPagina;
+
+		$numFilas = $insFormulario->obtenerForms();
+
+		$totalPaginas = ceil($numFilas / $tamañoPagina);
+
+					$listaForm = $insFormulario->get_formularios($empezar, $tamañoPagina);
 
 					foreach ($listaForm as $fila ) {
 
@@ -82,7 +100,35 @@
 				<?php } ?>
 			</table>
 		</div>
+	<?php 
+	
+		for($i = 1; $i<=$totalPaginas; $i++){
+
+			echo "<a href='?pagina=" . $i . "'>". $i . "</a>";
+
+		}
+	 ?>	
 	</div>
+
+
+
+	 <div class="footer-principal">
+         <div class="footer-iconos">
+           <p>Siguenos en: </p>
+           <div class="menu-footer">
+             <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
+               <li><a href="#"><span class="icon-instagram"> Instagram</a></li>
+        		<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
+        		<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
+        		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
+              </ul>
+            </div>
+         </div>
+         <div class="panel-footer">
+           <h3>Proyectamos S.A.S 2019</h3>
+         </div>
+       </div>   
+
  	<script src="../js/main.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

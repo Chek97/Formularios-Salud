@@ -21,15 +21,20 @@
 						<h1><span><a href="#">logo</a></span>FORMULARIOS SALUTOGENESIS</h1>
 					</div> 
 					<div class="perfil-registro">
-						<div class="tab">
-							<button class="tablinks" onclick="openCity(event, 'Admin')">Administrador</button>
-  							<button class="tablinks" onclick="openCity(event, 'Usuario')">Usuario</button>
-  							<button class="tablinks" onclick="openCity(event, 'Encuestado')">Encuestado</button>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="tab">
+									<button class="tablinks" onclick="openCity(event, 'Admin')">Administrador</button>
+  								<button class="tablinks" onclick="openCity(event, 'Usuario')">Encuestador</button>
+  								<button class="tablinks" onclick="openCity(event, 'Encuestado')">Usuario</button>
+						</div>
+							</div>
 						</div>
 						<div id="Admin" class="tabcontent">
 				<form action="controlador/sesion_controlador.php" method="post"  class="formulario">
 					<?php 
 						if(isset($_GET['error'])){
+							echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
 							echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
 						}
 					 ?>
@@ -42,13 +47,14 @@
 						<label>Contraseña:</label>
 						<input type="password" name="passAdmin" class="form-control" placeholder="ingrese su contraseña" required>
 					</div>
-					<input type="submit" name="Ingresar1" class="btn btn-primary">
+					<input type="submit" name="Ingresar1" class="btn boton-ejec">
 				</form>
 			</div>
 			<div id="Usuario" class="tabcontent">
 				<form action="controlador/sesion_controlador.php" method="post"  class="formulario">
 					<?php 
 						if(isset($_GET['error'])){
+							echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
 							echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
 						}
 					 ?>
@@ -61,7 +67,7 @@
 						<label>Contraseña:</label>
 						<input type="password" name="passEncu" class="form-control" placeholder="ingrese su contraseña">
 					</div>
-					<input type="submit" name="Ingresar2" class="btn btn-primary">
+					<input type="submit" name="Ingresar2" class="btn boton-ejec">
 				</form>
 				<hr>
 				<div class="form-registro">
@@ -73,6 +79,7 @@
 				<form action="controlador/sesion_controlador.php" method="post"  class="formulario">
 					<?php 
 						if(isset($_GET['error'])){
+							echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
 							echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
 						}
 					 ?>
@@ -86,7 +93,7 @@
 						<label>Contraseña:</label>
 						<input type="password" name="passUsu" class="form-control" placeholder="ingrese su contraseña">
 					</div>
-					<input type="submit" name="Ingresar3" class="btn btn-primary">
+					<input type="submit" name="Ingresar3" class="btn boton-ejec">
 				</form>	
 				<hr>
 				<div class="form-registro">
@@ -96,7 +103,25 @@
 				 	</div>
 				 
 	
-		<hr>
+		<!-- ARREGLAR ESTA PARTE, ESTAN DAÑANDO ESTE FOOTER O HACER UNO NUEVO-->
+
+		<div class="footer-principal">
+         <div class="footer-iconos">
+           <p>Siguenos en: </p>
+           <div class="menu-footer">
+             <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
+               <li><a href="#"><span class="icon-instagram"> Instagram</a></li>
+        		<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
+        		<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
+        		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
+              </ul>
+            </div>
+         </div>
+         <div class="panel-footer">
+           <h3>Proyectamos S.A.S 2019</h3>
+         </div>
+       </div>
+<!--
       	<div class="footer-redes">
       		<div class="container">
       			<div class="row">
@@ -118,6 +143,7 @@
       	<footer class="panel-footer panel-custom">
           <p style="text-align: center;"><h4 style="text-align: center;">&copy; Proyectamos S.A.S 2019</h4></p>
       	</footer>
+      -->
 
 
 

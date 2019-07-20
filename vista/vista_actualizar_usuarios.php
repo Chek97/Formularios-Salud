@@ -4,24 +4,7 @@
 
 	$insUsuario = new Usuarios_modelo();
 
-	if(isset($_POST['btnActualizar'])){
-		$inputId = $_POST['actId'];
-		$inputUsuario = $_POST['actUsu'];
-		$inputNombre = $_POST['actNom'];
-		$inputApellido = $_POST['actApe'];
-		$inputCorreo = $_POST['actCorr'];
-		$inputCelular = $_POST['actCel'];
-		$inputContraseña = $_POST['actCon'];
-		$inputFecha = $_POST['actFecha'];
-
-		if($insUsuario->actualizarUsuarios($inputId, $inputUsuario, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha)==true){
-			echo "Se actualizaron los datos";
-		}else{
-			echo "Algo no se actualizo";
-		}
-
-
-	}
+	
 
  ?>
 <!DOCTYPE html>
@@ -34,6 +17,7 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 	<title>Actualizar Usuario</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
@@ -49,7 +33,7 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="vista_administrador.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
@@ -105,13 +89,37 @@
 		//$listaDatos = $insUsuario->obtener_usuario($nombreUsuario);
 
 		//foreach ($listaDatos as $fil) {
+
+
 			
 		
 	 ?>
 	<div class="container">
-		<div style="background-color: gray;">
-			<div style="text-align: center; padding: 20px; margin: 20px;">
-				<h1>Actualizar Usuario:</h1>
+		<?php 
+
+			if(isset($_POST['btnActualizar'])){
+		$inputId = $_POST['actId'];
+		$inputUsuario = $_POST['actUsu'];
+		$inputNombre = $_POST['actNom'];
+		$inputApellido = $_POST['actApe'];
+		$inputCorreo = $_POST['actCorr'];
+		$inputCelular = $_POST['actCel'];
+		$inputContraseña = $_POST['actCon'];
+		$inputFecha = $_POST['actFecha'];
+
+		if($insUsuario->actualizarUsuarios($inputId, $inputUsuario, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha)==true){
+			echo "<div class='alert alert-info'>Se actualizaron los datos</div>";
+		}else{
+			echo "<div class='alert alert-danger'>Algo no se actualizo o no hubo cambios que realizar</div>";
+		}
+
+
+	}
+
+		 ?>
+		<div class="contenedor-formulario">
+			<div class="contenedor-titulo">
+				<h1>Actualizar Usuario</h1>
 			</div>
 			<div>
 				<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" style="padding: 10px;">
@@ -146,7 +154,7 @@
 					<input type="date" name="actFecha" class="form-control" value="<?php echo $nombreFecha; ?>">
 				</div>
 			<?php //} ?>	
-				<input type="submit" class="btn btn-primary" value="Actualizar" name="btnActualizar">
+				<input type="submit" class="btn boton-ejec" value="Actualizar" name="btnActualizar">
 			</form>
 			</div>
 		</div>
@@ -157,6 +165,23 @@
 	<div style="margin-right: 25%; background-color: red; margin-left: 25%;">
 	
 	</div>
+
+	<div class="footer-principal">
+         <div class="footer-iconos">
+           <p>Siguenos en: </p>
+           <div class="menu-footer">
+             <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
+               <li><a href="#"><span class="icon-instagram"> Instagram</a></li>
+        		<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
+        		<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
+        		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
+              </ul>
+            </div>
+         </div>
+         <div class="panel-footer">
+           <h3>Proyectamos S.A.S 2019</h3>
+         </div>
+       </div>
 
 
 

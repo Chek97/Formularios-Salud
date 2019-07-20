@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 	<title>Actualizar Datos</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
@@ -24,18 +25,7 @@
 
 		$oFormularios = new Formulario_modelo();
 
-		if(isset($_POST['btnActualizar'])){
-
-			$inputTitulo = $_POST['actUsu'];
-			$inputDescripcion = $_POST['actDes'];
-			$inputId = $_POST['actId'];
-
-			if($oFormularios->actualizarFormulario($inputTitulo, $inputDescripcion, $inputId)==true){
-				echo "Se actualizo el formulario";
-			}else{
-				echo "No se actualizo";
-			}
-		}
+		
 	 ?>
 
 		<nav class="navbar navbar-personalizado"> 
@@ -51,8 +41,6 @@
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_admin_formulario.php">Formularios</a></li>
-					<li><a href="#">Busqueda</a></li>
-					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-search"></span>
@@ -85,11 +73,28 @@
 		}
 		$datosFormulario = $oFormularios->informacionFormulario($nombreTitulo);
 
+		if(isset($_POST['btnActualizar'])){
+
+			$inputTitulo = $_POST['actUsu'];
+			$inputDescripcion = $_POST['actDes'];
+			$inputId = $_POST['actId'];
+
+			if($oFormularios->actualizarFormulario($inputTitulo, $inputDescripcion, $inputId)==true){
+				echo "<div class='alert alert-infos container'>Se actualizo el formulario</div>";
+			}else{
+				echo "<div class='alert alert-danger container'>No se actualizo</div>";
+			}
+		}
+
 		foreach ($datosFormulario as $dato) {
 
 	 ?>
 
-	<div class="container">
+
+	<div class="container" style="background-color: white; padding: 20px; border-radius: 5px; box-shadow: 10px 10px #503c42; margin-bottom: 40px;">
+		<div class="contenedor-titulo">
+			<h1>Actualizar Formulario</h1>
+		</div>
 		<div class="row">
 			<div class="col-xs-12 col-md-12 col-lg-6">
 				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -103,8 +108,8 @@
 						<textarea name="actDes"class="form-control"><?php echo $nombreDescripcion; ?></textarea>
 					</div>
 					<br>
-					<div class="form-group">
-						<input type="submit" class="btn btn-primary" value="Actualizar" name="btnActualizar">
+					<div class="form-group col-xs-12" style="text-align: center;">
+						<input type="submit" class="btn boton-ejec btn-lg" value="Actualizar" name="btnActualizar">
 					</div>
 				</form>	
 			</div>
@@ -118,7 +123,7 @@
 
 					echo "<div class='col-xs-12 col-md-12 col-lg-6'>
 							<div style='text-align: center;'>
-								<a href=''><button class='btn btn-success'>Ver Preguntas</button></a>
+								<a href=''><button class='btn btn-success btn-lg'>Ver Preguntas</button></a>
 							</div>
 							</div>";
 				}
@@ -127,6 +132,23 @@
 	</div>
 
 	<?php } ?>
+
+	<div class="footer-principal">
+         <div class="footer-iconos">
+           <p>Siguenos en: </p>
+           <div class="menu-footer">
+             <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
+               <li><a href="#"><span class="icon-instagram"> Instagram</a></li>
+        		<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
+        		<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
+        		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
+              </ul>
+            </div>
+         </div>
+         <div class="panel-footer">
+           <h3>Proyectamos S.A.S 2019</h3>
+         </div>
+       </div>
 
 
 
