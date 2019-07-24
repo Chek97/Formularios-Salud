@@ -152,6 +152,37 @@
 
 		}
 
+		public function obtenerPropios4($user){
+			$instruccion9 = $this->db->query("SELECT * FROM formularios WHERE usuario='$user' GROUP BY idFormularios DESC LIMIT 4 ");
+
+			$usuarios5 = array();
+
+			if($instruccion9->rowCount()){
+				while ($reg = $instruccion9->fetch(PDO::FETCH_ASSOC)) {
+				
+				$usuarios5[] = $reg;
+				}
+
+			}else{
+				return false;
+			}
+			return $usuarios5;
+		}
+
+		public function obtenerForms1($user){
+
+			$consulta10 = $this->db->query("SELECT * FROM formularios WHERE usuario='$user'");
+
+			if($consulta10->rowCount()){
+				return $consulta10->rowCount();
+				
+
+			}else{
+				return false;
+			}
+
+		}
+
 	}
 
 

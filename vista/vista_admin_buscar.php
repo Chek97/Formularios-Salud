@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-	<title>Busqueda</title>
+	<title>Busqueda Admin</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -23,12 +23,13 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="vista_encuestador.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="vista_administrador.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
-					<li><a href="vista_encuestador_formularios.php">Formularios</a></li>
-					<li><a href="vista_buscar.php">Busqueda</a></li>
+					<li><a href="vista_admin_formulario.php">Formularios</a></li>
+					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
+					<li><a href="vista_admin_buscar.php">Busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-user"></span>

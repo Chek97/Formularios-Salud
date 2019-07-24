@@ -34,10 +34,10 @@
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_admin_formulario.php">Formularios</a></li>
 					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
-					<li><a href="vista_buscar.php">Busqueda</a></li>
+					<li><a href="vista_admin_buscar.php">Busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-search"></span>
+								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
 								<li><a href="vista_acerca.php">Acerca de</a></li>
@@ -70,19 +70,21 @@
 
 					$insFormulario = new Formulario_modelo();
 
-					if(isset($_GET["pagina"])){
-								if($_GET["pagina"] == 1){
-									header("location: ../vista/vista_admin_usuario.php");
+
+
+					if(isset($_GET["pagina1"])){
+								if($_GET["pagina1"] == 1){
+									header("location: ../vista/vista_admin_formulario.php");
 								}else{
-									$pagina = $_GET["pagina"];
+									$pagina1 = $_GET["pagina1"];
 								}
 						}else{
-							$pagina = 1;
+							$pagina1 = 1;
 						}
 
 						$tamañoPagina = 5;
 
-		$empezar = ($pagina - 1) * $tamañoPagina;
+		$empezar = ($pagina1 - 1) * $tamañoPagina;
 
 		$numFilas = $insFormulario->obtenerForms();
 
@@ -99,28 +101,46 @@
 				 	<td><?php echo $fila['descripcion']; ?></td>
 				 	<td><?php echo $fila['numeroPregunta']; ?></td>
 				 	<td><?php echo $fila['voto']; ?></td>
-				 	<td><a href="vista_actualizar_formulario.php?id=<?php echo $fila['idFormularios'] ?>&titulo=<?php echo $fila['nombre'] ?>&descripcion=<?php echo $fila['descripcion'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
-				 	<td><a href="#"><button class="btn btn-danger">Borrar</button></a></td>
+				 	<td><a href="vista_admin_actualizar_formulario.php?id=<?php echo $fila['idFormularios'] ?>&titulo=<?php echo $fila['nombre'] ?>&descripcion=<?php echo $fila['descripcion'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
+				 	<td><a href="../controlador/administrador_borrar_formulario.php?id=<?php echo $fila['idFormularios'] ?>&preguntas=<?php echo $fila['numeroPregunta'] ?>"><button class="btn btn-danger">Borrar</button></a></td>
 				 </tr>
 				<?php } ?>
 			</table>
 		</div>
+
+		<div class="contnedor-paginacion">
 	<?php 
 		//PAGINACION
 
 	
-
+		echo "<ul class='pagination'>";
 		for($i = 1; $i<=$totalPaginas; $i++){
 
-			echo "<a href='?pagina=" . $i . "'>". $i . "</a>";
+			if($i == $pagina1){
+				echo "<li class='disabled'><a>". $i . "</a></li>";
+			}else{
+				echo "<li><a href='?pagina1=" . $i . "'>". $i . "</a></li>";
+			}
+
+
+			//if($i == 1){
+			//	echo "<li class='disabled'><a>". $i . "</a></li>";
+			//}else{
+		//		echo "<li><a href='?pagina1=" . $i . "'>". $i . "</a></li>";
+		//	}
+
+			
 
 		}
 
+		echo "</ul>";
 
 
 
 
-	 ?>	
+
+	 ?>
+	 </div>	
 	</div>
 
 

@@ -23,7 +23,6 @@
 		require_once("../modelo/formularios_modelo.php");
 		include_once("../controlador/sesion_controlador.php");
 		include_once("../modelo/usuario.php");
-
 		$oFormularios = new Formulario_modelo();
 
 		
@@ -39,11 +38,13 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="vista_encuestador_formulario.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="vista_administrador.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_admin_formulario.php">Formularios</a></li>
+					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
+					<li><a href="vista_admin_buscar.php">Busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-user"></span>
@@ -88,6 +89,7 @@
 
 			if($oFormularios->actualizarFormulario($inputTitulo, $inputDescripcion, $inputId)==true){
 				echo "<div class='alert alert-info container'>Se actualizo el formulario</div>";
+				header("location: vista_admin_formulario.php");
 			}else{
 				echo "<div class='alert alert-danger container'>No se actualizo o no hay cambios que realizar</div>";
 			}
@@ -130,8 +132,10 @@
 
 					echo "<div class='col-xs-12 col-md-12 col-lg-6'>
 							<div style='text-align: center;'>
-								<a href=''><button class='btn btn-success btn-lg'>Ver Preguntas</button></a>
-							</div>
+							"
+							?>
+								<a href="../vista/vista_actualizar_preguntas.php?id1=<?php echo $nombreId; ?>&nump=<?php echo $dato['numeroPregunta']; ?>"><button class="btn btn-success btn-lg">Ver Preguntas</button></a>
+							<?php echo "</div>
 							</div>";
 				}
 			 ?>

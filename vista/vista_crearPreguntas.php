@@ -75,11 +75,7 @@
 					if($oFormularios->setNumeroPregunta($nPreguntas, $idFormulario) == true){
 
 						$idPregunta1 = $oPreguntas->getId($inputDescripcion);
-						if($idPregunta1 != null){
-							echo "La opcion existe";
-						}else{
-							echo "No existe el id";
-						}
+						
 						if($opciones1 == 1){
 							$inputOpcion = $_POST['opc1'];
 							if($oOpciones->crearOpciones($inputOpcion, $idPregunta1) == true){
@@ -97,7 +93,7 @@
 								}
 							}
 						}
-
+						header("location: vista_encuestador_formularios.php");
 					}else{
 						echo "Si se inserto pero no sumo a la pregunta";
 					}
@@ -167,7 +163,7 @@
 					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-search"></span>
+								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
 								<li><a href="vista_acerca.php">Acerca de</a></li>

@@ -1,3 +1,4 @@
+
 <?php
 	$servername = "localhost";
     $username = "root";
@@ -17,11 +18,11 @@
 
     if (isset($_POST['consulta'])) {
     	$q = $conn->real_escape_string($_POST['consulta']);
-    	$query = "SELECT u.nombre, r.argumento, p.textoPregunta, p.tipo, p.formulario 
+    	$query = "SELECT u.usuario, u.nombre, r.argumento, p.textoPregunta, p.tipo, p.formulario 
         FROM respuestas r
         INNER JOIN preguntas p ON r.preguntai = p.idPreguntas
         INNER JOIN usuario u ON r.usuarioi  = u.idusuario
-        WHERE textoPregunta LIKE '%".$q."%' OR argumento LIKE '%".$q."%'  OR nombre LIKE '%".$q."%' OR tipo LIKE '%".$q."%' OR  formulario LIKE '%".$q."%'";
+        WHERE textoPregunta LIKE '%".$q."%' OR argumento LIKE '%".$q."%'  OR nombre LIKE '%".$q."%' OR tipo LIKE '%".$q."%' OR  formulario LIKE '%".$q."%' OR usuario LIKE '%".$q."%'";
 
        // $query = "SELECT argumento FROM respuestas  WHERE argumento LIKE '%".$q."%'";
         
@@ -36,6 +37,7 @@
 
                         
     					<td>USUARIO</td>
+                        <td>NOMBRE</td>
     					<td>PREGUNTA</td>
     					<td>TIPO</td>
                         <td>RESPUESTA</td>
@@ -50,7 +52,8 @@
 
     	while ($fila = $resultado->fetch_assoc()) {
     		$salida.="<tr>
-                        
+
+                        <td>".$fila['usuario']."</td>
     					<td>".$fila['nombre']."</td>
                         <td>".$fila['textoPregunta']."</td>
                         <td>".$fila['tipo']."</td>

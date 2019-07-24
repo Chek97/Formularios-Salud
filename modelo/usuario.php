@@ -7,6 +7,7 @@
 
 		private $nombre;
 		private $usuario;
+		private $contraseña;
 		private $db;
 
 		public function __construct(){
@@ -48,11 +49,16 @@
 				
 				$this->$nombre = $reg['nombre'];
 				$this->$usuario = $reg['usuario'];
+				$this->$contraseña = $reg['contraseña'];
 			}
 		}
 
 		public function getNombre(){
 			return $this->nombre;
+		}
+
+		public function getContraseña(){
+			return $this->contraseña;
 		}
 	}
 

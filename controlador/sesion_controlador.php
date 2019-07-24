@@ -25,6 +25,7 @@
 		$valorContraseña1 = $_POST['passAdmin'];
 
 		if($usuario->usuarioExiste($valorUsuario1, $valorContraseña1)){
+			$sessionUsuario = new Session();
 			$sessionUsuario->setSession($valorUsuario1);
 			$usuario->setUsuario($valorUsuario1);
 
@@ -39,10 +40,11 @@
 		$valorContraseña2 = $_POST['passEncu'];
 
 		if($usuario->existe($valorUsuario2, $valorContraseña2)){
+			
 			$sessionUsuario->setSession($valorUsuario2);
 			$usuario->setUsuario($valorUsuario2);
 
-			header("location: ../vista/vista_encuestador_formularios.php");
+			header("location: ../vista/vista_encuestador.php");
 		}else{
 			echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
 			header("location: ../index.php?error=true");
@@ -52,12 +54,25 @@
 		$valorContraseña3 = $_POST['passUsu'];
 
 		if($usuario->existe($valorUsuario3, $valorContraseña3)){
+			
 			$sessionUsuario->setSession($valorUsuario3);
 			$usuario->setUsuario($valorUsuario3);
 
-			header("location: ../vista/vista_usuarios_formularios.php");
+			header("location: ../vista/vista_usuarios.php");
 		}else{
 			header("location: ../index.php?error=true");
 		}
 	}
+
+	//$ses = $sessionUsuario->getSession();
+
+	//if(isset($ses)){
+	//	echo "Hay sesion";
+	//}else{
+	//	echo "No hay sesion";
+	//}
+
+	
  ?>
+
+

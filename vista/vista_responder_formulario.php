@@ -40,10 +40,10 @@
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_usuarios_formularios.php">Formularios</a></li>
-					<li><a href="#">Busqueda</a></li>
+					<li><a href="vista_buscar.php">Busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-search"></span>
+								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
 								<li><a href="vista_acerca.php">Acerca de</a></li>
@@ -69,6 +69,8 @@
 				$idForm = $_GET['id'];
 				$numPreguntas = $_GET['num'];
 			}
+
+
 
 			$preguntas = $oPreguntas->obtenerId($idForm);
 

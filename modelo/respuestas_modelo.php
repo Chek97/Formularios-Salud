@@ -42,6 +42,36 @@
 
 		}
 
+		public function borrarRespuesta($id){
+
+			$instruccion3 = $this->db->query("DELETE FROM respuestas WHERE idRespuesta='$id'");
+
+			if($instruccion3->rowCount()){
+				return true;
+			}else{
+				return false;
+			}
+
+		}
+
+		public function obtenerRespuestasUsuario($id){
+			$instruccion4 = $this->db->query("SELECT * from respuestas WHERE usuarioi='$id'");
+
+			$listRespuestas1 = array();
+
+			if($instruccion4->rowCount()){
+				while ($fila = $instruccion4->fetch(PDO::FETCH_ASSOC)) {
+				
+				$listRespuestas1[] = $fila;
+				}
+
+			}else{
+				return false;
+			}
+			return $listRespuestas1;
+
+		}
+
 				
 
 	}

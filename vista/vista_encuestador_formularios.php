@@ -34,16 +34,16 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="vista_encuestador.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
-					<li><a href="vista_encuestador_formularios.php">Formularios</a></li>
-					<li><a href="#">Busqueda</a></li>
+					<li><a href="../vista/vista_encuestador_formularios.php">Formularios</a></li>
+					<li><a href="../vista/vista_buscar.php">Busqueda</a></li>
 					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-search"></span>
+								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
 								<li><a href="vista_acerca.php">Acerca de</a></li>
@@ -55,7 +55,7 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container">
+	<div class="container" style="margin-bottom: 150px;">
 		<div class="contenedor-titulo" style="color: white;">
 			<h1>Formularios Creados</h1>
 		</div>
@@ -97,7 +97,7 @@
 							$listaForms = $oFormularios->obtenerFormulariospropios($idUsuario1);
 
 							if($listaForms == null){
-								echo "No hay formularios Creados";
+								echo "<div class='alert alert-info' style='text-align: center;'>No hay formularios Creados</div>";
 							}else{
 
 				 ?>
@@ -116,7 +116,23 @@
 
 							//$listaUsuarios = $musuario->get_usuarios();
 
-							
+							if(isset($_GET["pagina1"])){
+								if($_GET["pagina1"] == 1){
+									header("location: ../vista/vista_encuestador_formularios.php");
+								}else{
+									$pagina1 = $_GET["pagina1"];
+								}
+						}else{
+							$pagina1 = 1;
+						}
+
+						$tamañoPagina = 5;
+
+		$empezar = ($pagina1 - 1) * $tamañoPagina;
+
+		$numFilas = $oFormularios->obtenerForms1($idUsuario1);
+
+		$totalPaginas = ceil($numFilas / $tamañoPagina);
 
 
 							foreach ($listaForms as $registro ) {
@@ -130,7 +146,7 @@
 					<td><?php echo $registro['numeroPregunta']; ?></td>
 					<td><?php echo $registro['voto']; ?></td>
 					<td><a href="vista_actualizar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&titulo=<?php echo $registro['nombre'] ?>&descripcion=<?php echo $registro['descripcion'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
-					<td><a href="../controlador/borrar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&preguntas=<?php echo $registro['numeroPregunta'] ?>"><button class="btn btn-danger">Borrar</button></a></td>
+					<td><a href="../controlador/encuestador_borrar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&preguntas=<?php echo $registro['numeroPregunta'] ?>"><button class="btn btn-danger">Borrar</button></a></td>
 					<td><a href="vista_crearPreguntas.php?iden=<?php echo $registro['idFormularios']; ?>"><button class="btn boton-primario">Crear Preguntas</button></a></td>
 							
 					</tr>
@@ -140,9 +156,44 @@
 						 	
 						  ?>
 							</table>
-						<?php } ?>		
-						</div>			
-		 
+<div class="contnedor-paginacion">
+				<?php 
+				
+					echo "<ul class='pagination'>";
+		for($i = 1; $i<=$totalPaginas; $i++){
+
+			if($i == $pagina1){
+				echo "<li class='disabled'><a>". $i . "</a></li>";
+			}else{
+				echo "<li><a href='?pagina1=" . $i . "'>". $i . "</a></li>";
+			}
+
+
+			//if($i == 1){
+			//	echo "<li class='disabled'><a>". $i . "</a></li>";
+			//}else{
+		//		echo "<li><a href='?pagina1=" . $i . "'>". $i . "</a></li>";
+		//	}
+
+			
+
+		}
+
+		echo "</ul>";
+
+
+				 ?>	
+
+		 </div>
+
+
+						<?php } ?>	
+
+
+
+
+						</div>
+
 		
 		<div style="text-align: center;">
 			<button class="btn boton-ejec btn-lg" data-toggle="modal" data-target="#crearPregunta">Crear Formulario</button>

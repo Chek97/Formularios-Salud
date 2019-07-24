@@ -39,7 +39,7 @@
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_admin_formulario.php">Formularios</a></li>
 					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
-					<li><a href="vista_buscar.php">busqueda</a></li>
+					<li><a href="vista_admin_buscar.php">busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-user"></span>
@@ -80,7 +80,7 @@
 					<div class="carta-formulario">
 						<div class="carta-titulo">
 							
-								<a href="vista_actualizar_formulario.php?id=<?php echo $fila['idFormularios'] ?>&titulo=<?php echo $fila['nombre'] ?>&descripcion=<?php echo $fila['descripcion'] ?>" class="carta-enlace"><h2><span class="glyphicon glyphicon-search"> <?php echo $fila["nombre"]; ?></span></h2></a>
+								<a href="vista_admin_actualizar_formulario.php?id=<?php echo $fila['idFormularios'] ?>&titulo=<?php echo $fila['nombre'] ?>&descripcion=<?php echo $fila['descripcion'] ?>" class="carta-enlace"><h2><span class="glyphicon glyphicon-list-alt"> <?php echo $fila["nombre"]; ?></span></h2></a>
 								
 						</div>
 						<div class="carta-contenido">

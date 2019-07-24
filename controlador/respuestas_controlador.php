@@ -39,13 +39,13 @@
 				}
 			$contador++;
 			}
-			header("location: ../vista/vista_usuarios_formulario.php");
+			header("location: ../vista/vista_usuarios_formularios.php");
 			echo "<br>";
 
 		}else if(isset($_POST[$contador])){
 			if($objRespuestas->insertarRespuestas($_POST[$contador], $_POST['idp'.$i], $s)==true){
 				echo "La respuesta fue insertada";
-				header("location: ../vista/vista_usuarios_formulario.php");
+				header("location: ../vista/vista_usuarios_formularios.php");
 			}else{
 				echo "La respuesta no se inserto";
 			}

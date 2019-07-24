@@ -172,7 +172,7 @@ h2,h3,h4,h5,h6{
 
 .carta-preguntas{
   text-align: center;
-  padding: 10px;
+
 }
 
 .carta-votos{
@@ -343,6 +343,27 @@ h2,h3,h4,h5,h6{
 
 .contenedor-titulo{
   text-align: center;
+}
+
+.contnedor-paginacion{
+  text-align: center;
+}
+
+.pagination>li>a{
+  background-color: green;
+  color: white;
+  border: none;
+}
+
+.pagination>li>a:hover{
+  background-color: #8a3e65;
+  color: black;
+  
+}
+
+.contenedor-texto1{
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 

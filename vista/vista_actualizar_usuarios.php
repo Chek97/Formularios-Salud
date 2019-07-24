@@ -39,10 +39,10 @@
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_admin_formulario.php">Formularios</a></li>
 					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
-					<li><a href="#">Exportar</a></li>
+					<li><a href="vista_admin_buscar.php">Busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-search"></span>
+								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
 								<li><a href="vista_acerca.php">Acerca de</a></li>
@@ -109,6 +109,7 @@
 
 		if($insUsuario->actualizarUsuarios($inputId, $inputUsuario, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha)==true){
 			echo "<div class='alert alert-info'>Se actualizaron los datos</div>";
+			header("location: vista_admin_usuario.php");
 		}else{
 			echo "<div class='alert alert-danger'>Algo no se actualizo o no hubo cambios que realizar</div>";
 		}

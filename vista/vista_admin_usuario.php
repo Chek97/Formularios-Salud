@@ -63,10 +63,10 @@
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_admin_formulario.php">Formularios</a></li>
 					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
-					<li><a href="vista_buscar.php">Busqueda</a></li>
+					<li><a href="vista_admin_buscar.php">Busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-search"></span>
+								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
 								<li><a href="vista_acerca.php">Acerca de</a></li>
@@ -144,7 +144,7 @@
 					<td><?php echo $registro['fecha']; ?></td>
 					<td><?php echo $registro['sexo']; ?></td>
 					<td><a href="vista_actualizar_usuarios.php?id=<?php echo $registro['idUsuario'] ?>&usuario=<?php echo $registro['usuario']; ?>&nombre=<?php echo $registro['nombre']; ?>&apellido=<?php echo $registro['apellido'] ?>&correo=<?php echo $registro['correo'] ?>&celular=<?php echo $registro['celular'] ?>&contraseña=<?php echo $registro['contraseña'] ?>&fecha=<?php echo $registro['fecha'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
-					<td><button class="btn btn-danger" data-toggle="modal" data-target="#borrar">Borrar</button></td>
+					<td><a href="../controlador/administrador_borrar_usuario.php?id=<?php echo $registro['idUsuario']; ?>"><button class="btn btn-danger">Borrar</button></a></td>
 							
 					</tr>
 
@@ -154,20 +154,30 @@
 						  ?>
 					</table>
 				</div>
+				<div class="contnedor-paginacion">
 				<?php 
 
 		
 
-	
+		echo "<ul class='pagination'>";
 
 		for($i = 1; $i<=$totalPaginas; $i++){
 
-			echo "<a href='?pagina=" . $i . "'>". $i . "</a>";
+			if($i == $pagina){
+				echo "<li class='disabled'><a>". $i . "</a></li>";
+			}else{
+				echo "<li><a href='?pagina=" . $i . "'>". $i . "</a></li>";
+			}
+
+			
 
 		}
 
+		echo "</ul>";
 
- ?>	
+
+ ?>
+ </div>	
 				<div style="text-align: center; border-radius: 4px;">
 						<button class="boton-primario btn-lg" data-toggle="modal" data-target="#crear" style="margin: 20px; border-radius: 4px;">Agregar</button>
 				</div>
