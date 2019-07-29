@@ -57,6 +57,18 @@
 
 		}
 
+		public function ActualizarOpcion($text, $id){
+
+			$instruccion4 = $this->db->query("UPDATE opciones SET texto='$text' WHERE idOpcion='$id'");
+
+			if($instruccion4->rowCount()){
+				return true;
+			}else{
+				return false;
+			}
+
+		}
+
 		
 
 	}

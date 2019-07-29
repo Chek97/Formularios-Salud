@@ -30,13 +30,12 @@
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="vista_encuestador_formularios.php">Formularios</a></li>
 					<li><a href="vista_buscar.php">Busqueda</a></li>
-					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
-								<li><a href="vista_acerca.php">Acerca de</a></li>
+								<li><a href="vista_acerca_encuestador.php">Acerca de</a></li>
 								<li><a href="vista_perfil.php">Mi perfil</a></li>
 								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
 							</ul>
@@ -85,14 +84,11 @@
 		 			<h2><span class="glyphicon glyphicon-list-alt"> <?php echo $reg["nombre"]; ?></span></h2>
 		 		</div>
 		 		<div class="carta-contenido">
-		 			<div class="carta-descripcion">
+		 			<div class="carta-descripcion" >
 								<p><?php echo $reg["descripcion"]; ?></p>
 							</div>
-							<div class="carta-preguntas">
+							<div class="carta-preguntas" style="padding-bottom: 20px;">
 								<h3>Numero Preguntas: <?php echo $reg['numeroPregunta']; ?></h3>
-							</div>
-							<div class="carta-votos">
-								<h4>Votos totales: <?php echo $reg["voto"]; ?></h4>
 							</div>
 		 		</div>
 		 	</div>

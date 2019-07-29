@@ -51,9 +51,9 @@
 			return $this->usuarios;
 		}
 
-		public function actualizarUsuarios($id, $usu, $nom, $ape, $corr, $cel, $cont, $fec){
+		public function actualizarUsuarios($id, $nom, $ape, $corr, $cel, $cont, $fec){
 
-			$consulta3 = $this->db->query("UPDATE usuario SET usuario='$usu', nombre='$nom', apellido='$ape', correo='$corr', celular='$cel', contraseña='$cont', fecha='$fec' WHERE idUsuario='$id'");
+			$consulta3 = $this->db->query("UPDATE usuario SET nombre='$nom', apellido='$ape', correo='$corr', celular='$cel', contraseña='$cont', fecha='$fec' WHERE idUsuario='$id'");
 
 			if($consulta3->rowCount()){
 				return true;
@@ -100,6 +100,30 @@
 				return $consulta9->rowCount();
 				
 
+			}else{
+				return false;
+			}
+
+		}
+
+		public function borrarUsuario($id){
+
+			$instruccion6 = $this->db->query("DELETE FROM usuario WHERE idUsuario='$id'");
+
+			if($instruccion6->rowCount()){
+				return true;
+			}else{
+				return false;
+			}
+
+		}
+
+		public function validarUsuario($usu){
+
+			$instruccion7 = $this->db->query("SELECT * FROM usuario WHERE usuario='$usu'");
+
+			if($instruccion7->rowCount()){
+				return true;
 			}else{
 				return false;
 			}

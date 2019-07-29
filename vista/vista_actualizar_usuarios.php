@@ -61,7 +61,7 @@
 
 			$nombreId = $_GET['id'];
 
-			$nombreUsuario = $_GET['usuario'];
+		
 			$nombreNombre = $_GET['nombre'];
 			$nombreApellido = $_GET['apellido'];
 			$nombreCorreo = $_GET['correo'];
@@ -73,7 +73,7 @@
 
 			$nombreId = $_POST['actId'];
 
-			$nombreUsuario = $_POST['actUsu'];
+			
 			$nombreNombre = $_POST['actNom'];
 			$nombreApellido = $_POST['actApe'];
 			$nombreCorreo = $_POST['actCorr'];
@@ -98,24 +98,23 @@
 		<?php 
 
 			if(isset($_POST['btnActualizar'])){
-		$inputId = $_POST['actId'];
-		$inputUsuario = $_POST['actUsu'];
-		$inputNombre = $_POST['actNom'];
-		$inputApellido = $_POST['actApe'];
-		$inputCorreo = $_POST['actCorr'];
-		$inputCelular = $_POST['actCel'];
-		$inputContraseña = $_POST['actCon'];
-		$inputFecha = $_POST['actFecha'];
+				$inputId = $_POST['actId'];
+				$inputUsuario = $_POST['actUsu'];
+				$inputNombre = $_POST['actNom'];
+				$inputApellido = $_POST['actApe'];
+				$inputCorreo = $_POST['actCorr'];
+				$inputCelular = $_POST['actCel'];
+				$inputContraseña = $_POST['actCon'];
+				$inputFecha = $_POST['actFecha'];
 
-		if($insUsuario->actualizarUsuarios($inputId, $inputUsuario, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha)==true){
-			echo "<div class='alert alert-info'>Se actualizaron los datos</div>";
-			header("location: vista_admin_usuario.php");
-		}else{
+			if($insUsuario->actualizarUsuarios($inputId, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha)==true){
+				echo "<div class='alert alert-info'>Se actualizaron los datos</div>";
+				header("location: vista_admin_usuario.php");
+			}else{
 			echo "<div class='alert alert-danger'>Algo no se actualizo o no hubo cambios que realizar</div>";
+			}
+		
 		}
-
-
-	}
 
 		 ?>
 		<div class="contenedor-formulario">
@@ -127,9 +126,7 @@
 				<div class="form-group">
 					<input type="text" name="actId" class="hidden" value="<?php echo $nombreId; ?>">
 				</div>	
-				<div class="form-group">
-					<input type="text" name="actUsu" class="form-control" value="<?php echo $nombreUsuario; ?>">
-				</div>
+				
 				<div class="form-group">
 					<label>Nombre</label>
 					<input type="text" name="actNom" class="form-control" value="<?php echo $nombreNombre; ?>">
@@ -155,7 +152,7 @@
 					<input type="date" name="actFecha" class="form-control" value="<?php echo $nombreFecha; ?>">
 				</div>
 			<?php //} ?>	
-				<input type="submit" class="btn boton-ejec" value="Actualizar" name="btnActualizar">
+				<input type="submit" class="btn" value="Actualizar" name="btnActualizar">
 			</form>
 			</div>
 		</div>

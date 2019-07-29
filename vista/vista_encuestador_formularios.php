@@ -195,8 +195,8 @@
 						</div>
 
 		
-		<div style="text-align: center;">
-			<button class="btn boton-ejec btn-lg" data-toggle="modal" data-target="#crearPregunta">Crear Formulario</button>
+		<div style="text-align: center; ">
+			<button class="btn btn-lg" style="background-color: white;" data-toggle="modal" data-target="#crearPregunta">Crear Formulario</button>
 		</div>
 	</div>
 

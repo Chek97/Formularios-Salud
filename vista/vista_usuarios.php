@@ -87,12 +87,9 @@
                             <div class="carta-descripcion">
                                 <p><?php echo $fila["descripcion"]; ?></p>
                             </div>
-                            <div class="carta-preguntas">
+                            <div class="carta-preguntas" style="padding-bottom: 20px;">
                                 <h3>Numero Preguntas: <?php echo $fila['numeroPregunta']; ?></h3>
                             </div>
-                            <div class="carta-votos">
-                                <h4>Votos totales: <?php echo $fila["voto"]; ?></h4>
-                            </div>  
                         </div>
                     </div>
                     <!-- COLOCAR UNA GRID PARA QUE SE MUESTRE LO IMPORTANE CUANDO SEA EN MOVIL-->

@@ -38,16 +38,18 @@
 		public function obtenerId($id){
 			$instruccion3 = $this->db->query("SELECT * from preguntas WHERE formulario='$id'");
 
+			$lis = array();
+
 			if($instruccion3->rowCount()){
 				while ($fila = $instruccion3->fetch(PDO::FETCH_ASSOC)) {
 				
-				$this->listaPregunta[] = $fila;
+				$lis[] = $fila;
 				}
 
 			}else{
 				return false;
 			}
-			return $this->listaPregunta;
+			return $lis;
 		}
 
 		public function borrarPregunta($id){
@@ -55,6 +57,18 @@
 			$instruccion4 = $this->db->query("DELETE FROM preguntas WHERE idPreguntas='$id'");
 
 			if($instruccion4->rowCount()){
+				return true;
+			}else{
+				return false;
+			}
+
+		}
+
+		public function actualizarPregunta($nom, $id){
+
+			$instruccion5 = $this->db->query("UPDATE preguntas set textoPregunta='nom' WHERE idPreguntas='$id'");
+
+			if($instruccion5->rowCount()){
 				return true;
 			}else{
 				return false;

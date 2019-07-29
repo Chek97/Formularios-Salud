@@ -116,7 +116,7 @@
 					</div>
 					<br>
 					<div class="form-group col-xs-12" style="text-align: center;">
-						<input type="submit" class="btn boton-ejec btn-lg" value="Actualizar" name="btnActualizar">
+						<input type="submit" class="btn btn-lg" value="Actualizar" name="btnActualizar">
 					</div>
 				</form>	
 			</div>

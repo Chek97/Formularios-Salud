@@ -86,6 +86,12 @@ function crearPreguntas(numero){
 
 }
 
+function confirmar(id){
+  if(confirm("Seguro que deseas eliminar?")){
+    window.location.href="../controlador/administrador_borrar_usuario.php?id1="+id;
+  }
+}
+
 function crearPreguntas1(numero){
   
   //Escogemos la lista como elemento padre
@@ -156,4 +162,6 @@ $(document).on('keyup','#caja_busqueda', function(){
     buscar_datos();
   }
 });
+
+
 

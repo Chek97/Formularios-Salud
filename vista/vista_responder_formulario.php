@@ -203,7 +203,7 @@
 
 
 		 ?>
-		 <input type="submit" class="btn boton-ejec" name="btnGuardar" value="Enviar Respuesta">
+		 <input type="submit" class="btn" name="btnGuardar" value="Enviar Respuesta">
 
 		</form>
 

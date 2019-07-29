@@ -114,7 +114,7 @@
 			 	}
 			  ?>
 
-			  <a href="vista_actualizar_usuarios.phpid=<?php echo $user['idUsuario'] ?>&usuario=<?php echo $user['usuario']; ?>&nombre=<?php echo $user['nombre']; ?>&apellido=<?php echo $user['apellido'] ?>&correo=<?php echo $user['correo'] ?>&celular=<?php echo $user['celular'] ?>&contraseña=<?php echo $user['contraseña'] ?>&fecha=<?php echo $user['fecha'] ?>"><button class="btn btn-primary">Actualizar</button></a>
+			  <a href="vista_actualizar_usuarios.php?id=<?php echo $user['idUsuario'] ?>&nombre=<?php echo $user['nombre']; ?>&apellido=<?php echo $user['apellido'] ?>&correo=<?php echo $user['correo'] ?>&celular=<?php echo $user['celular'] ?>&contraseña=<?php echo $user['contraseña'] ?>&fecha=<?php echo $user['fecha'] ?>"><button class="btn btn-primary">Actualizar</button></a>
 			
 		</div>
 	</div>

@@ -8,22 +8,32 @@
 	$usuario = new Usuarios_modelo();
 	//$musuario = new Usuarios_modelo();
 
+	if(isset($_POST['b'])){
+		$inputId = $_GET['id'];
+		header("location: ../controlador/administrador_borrar_usuario.php?id1=$inputId");
+	}
+
 	if(isset($_POST['btnRegistrar'])){
 		$inputUsuario = $_POST['regUsu'];
-		$inputNombre = $_POST['regNom'];
-		$inputApellido = $_POST['regApe'];
-		$inputCorreo = $_POST['regCorr'];
-		$inputCelular = $_POST['regCel'];
-		$inputContraseña = $_POST['regContra'];
-		$inputFecha = $_POST['regFecha'];
-		$inputSexo = $_POST['regSexo'];
-
-		if($oUsuarios->crearUsuario($inputUsuario, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha, $inputSexo)==true){
-			echo "El usuario fue agregado exitosamente";
-			header("location: vista_admin_usuario.php");
+		if($usuario->validarUsuario($inputUsuario) == true){
+			echo "<script>alert('Ya existe un usuario: $inputUsuario'); </script>";
 		}else{
+			$inputNombre = $_POST['regNom'];
+			$inputApellido = $_POST['regApe'];
+			$inputCorreo = $_POST['regCorr'];
+			$inputCelular = $_POST['regCel'];
+			$inputContraseña = $_POST['regContra'];
+			$inputFecha = $_POST['regFecha'];
+			$inputSexo = $_POST['regSexo'];
+
+			if($oUsuarios->crearUsuario($inputUsuario, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha, $inputSexo)==true){
+				echo "El usuario fue agregado exitosamente";
+				header("location: vista_admin_usuario.php");
+			}else{
 			echo "Algo no salio bien";
+			}
 		}
+		
 	}
 
 	//$sesion = $sessionUsuario->getSession();
@@ -70,7 +80,7 @@
 							</div>
 							<ul class="dropdown-menu">
 								<li><a href="vista_acerca.php">Acerca de</a></li>
-								<li><a href="vista_perfil.php?usuario=<?php echo $sesion; ?>">Mi perfil</a></li>
+								<li><a href="vista_perfil.php">Mi perfil</a></li>
 								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
 							</ul>
 					</li>
@@ -89,7 +99,7 @@
 				<div class="table-responsive">
 					<table class="table table-hover tabla-formulario">
 						<thead class="tabla-cabeza">
-						<tr style="background-color: green; color: white;">
+						<tr class="cabeza-titulo">
 							<th>ID</th>
 							<th>Usuario</th>
 							<th>Nombre</th>
@@ -130,6 +140,10 @@
 							$listaUsuarios = $oUsuarios->get_usuarios($empezar, $tamañoPagina);
 
 							foreach ($listaUsuarios as $registro ) {
+
+								if($registro['idUsuario'] != 1){
+
+								
 								
 							
 						 ?>
@@ -144,11 +158,13 @@
 					<td><?php echo $registro['fecha']; ?></td>
 					<td><?php echo $registro['sexo']; ?></td>
 					<td><a href="vista_actualizar_usuarios.php?id=<?php echo $registro['idUsuario'] ?>&usuario=<?php echo $registro['usuario']; ?>&nombre=<?php echo $registro['nombre']; ?>&apellido=<?php echo $registro['apellido'] ?>&correo=<?php echo $registro['correo'] ?>&celular=<?php echo $registro['celular'] ?>&contraseña=<?php echo $registro['contraseña'] ?>&fecha=<?php echo $registro['fecha'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
-					<td><a href="../controlador/administrador_borrar_usuario.php?id=<?php echo $registro['idUsuario']; ?>"><button class="btn btn-danger">Borrar</button></a></td>
+					<td><a href="#" onclick="confirmar(<?php echo $registro['idUsuario']; ?>)"><button class="btn btn-danger">Borrar</button></a></td>
 							
 					</tr>
 
-						 <?php 
+
+						 <?php
+						 } 
 						 	}
 
 						  ?>
@@ -179,7 +195,7 @@
  ?>
  </div>	
 				<div style="text-align: center; border-radius: 4px;">
-						<button class="boton-primario btn-lg" data-toggle="modal" data-target="#crear" style="margin: 20px; border-radius: 4px;">Agregar</button>
+						<button class="btn btn-lg" data-toggle="modal" data-target="#crear" style="margin: 20px; border-radius: 4px; background-color: white;">Agregar</button>
 				</div>
 
 				<div class="modal fade" id="crear">
@@ -249,7 +265,7 @@
 										</label>
 										</div>
 									<div class="form-group">
-										<input type="submit" class="btn boton-ejec" name="btnRegistrar" value="Aceptar">
+										<input type="submit" class="btn" name="btnRegistrar" value="Aceptar">
 									</div>
 								</form>
 							</div>
@@ -280,11 +296,10 @@
 						</div>
 					</div>
 				</div>
+				
 		</div>
 	</div>
 </div>
-
-
 
 	<script src="../js/main.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

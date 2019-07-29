@@ -248,7 +248,7 @@
 				</div>				
 			</div>
 			<div style="width: 100%; text-align: center;">
-				<input type="submit" name="btnCrear" id="btnCrear" value="Crear Pregunta" class="btn boton-ejec btn-lg">
+				<input type="submit" name="btnCrear" id="btnCrear" value="Crear Pregunta" class="btn btn-lg">
 			</div>
 			</form>
 				</div>

@@ -4,7 +4,10 @@
 	require_once("../modelo/opciones_modelo.php");
 
 	$objPreguntas = new Preguntas();
+	$objOpciones = new Opciones();
 	$idFormulario = $_GET['id1'];
+
+	
 
  ?>
 <!DOCTYPE html>
@@ -54,13 +57,21 @@
 		</div>
 	</nav>
 
+	<?php 
+
+
+
+
+
+	 ?>
+
 	 <div class="container"> 
 	 	<div class="contenedor-formulario">
 	 		<div class="contenedor-titulo">
 	 			<h1>PREGUNTAS</h1>
 	 		</div>
 	 		<div>
-	 			<form method="post">
+	 			<form method="post" action="../controlador/actualizar_preguntas.php?id=<?php echo $idFormulario; ?>">
 	 				<input type="hidden" name="inputFormulario" value="<?php echo $idFormulario; ?>">
 	 		<?php 
 
@@ -69,19 +80,47 @@
 			$listaPreguntas = $objPreguntas->obtenerId($idFormulario);
 
 			$numeroPreguntas  = $_GET['nump'];
-			$contador = 1;
+
+			$contador = 0;
+			$contaPregunta = 0;
+			
 
 			foreach ($listaPreguntas as $lp ) {
 
 	 		?>
 	 		
 	 				<div class="form-group">
+	 					<h4>Pregunta <?php echo $lp['tipo']; ?></h4>
 	 					<input type="text" class="form-control" value="<?php echo $lp['textoPregunta']; ?>" name="<?php echo $contador; ?>">
 	 				</div>
-	 			
+	 				<div class="form-group">
+	 					
+	 					<ul>
+	 						<?php 
+
+	 							if($lopciones = $objOpciones->obtenerOpciones($lp['idPreguntas'])){
+	 								foreach ($lopciones as $oo ) {
+	 					
+	 						?>
+	 							<li><input class="form-control" type="text" value="<?php echo $oo['texto']; ?>" name="<?php echo $contaPregunta ?>"></li>
+	 				
+
+	 						<?php 
+	 								$contaPregunta++;
+	 								}
+	 							}
+
+	 						 ?>	
+	 					</ul>
+
+	 				</div>
+	 		
 	 		
 	 	<?php $contador++; } ?>
-	 		<input type="submit" value="Actualizar" class="btn boton-ejec">
+	 		<div style="text-align: center;">
+	 			<input type="submit" value="Actualizar" name="btnAct" class="btn boton-ejec">
+	 		</div>
+	 		
 	 		</form>
 	 	</div>	
 	 	</div>

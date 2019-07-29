@@ -130,13 +130,9 @@
 					echo "<div class='col-xs-12 col-md-12 col-lg-6 alert alert-info' style='text-align: center;'>Este formulario no tiene preguntas</div>";
 				}else{
 
-					echo "<div class='col-xs-12 col-md-12 col-lg-6'>
-							<div style='text-align: center;'>
-							"
-							?>
-								<a href="../vista/vista_actualizar_preguntas.php?id1=<?php echo $nombreId; ?>&nump=<?php echo $dato['numeroPregunta']; ?>"><button class="btn btn-success btn-lg">Ver Preguntas</button></a>
-							<?php echo "</div>
-							</div>";
+					
+							
+							 
 				}
 			 ?>
 		</div>
@@ -161,6 +157,24 @@
          </div>
        </div>
 
+    <?php 
+
+ /*
+
+ 	echo "<div class='col-xs-12 col-md-12 col-lg-6'>
+							<div style='text-align: center;'>
+							"
+							?>
+	<a href="../vista/vista_actualizar_preguntas.php?id1=<?php echo $nombreId; ?>&nump=<?php echo $dato['numeroPregunta']; ?>"><button class="btn btn-success btn-lg">Ver Preguntas</button></a>
+							<?php echo "</div>
+							</div>";
+	*/
+
+
+
+
+ ?>   
+
 
 
 	<script src="../js/main.js"></script>
@@ -170,3 +184,4 @@
     <script src="../js/vendor/bootstrap.min.js"></script>
 </body>
 </html>
+

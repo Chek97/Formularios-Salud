@@ -47,7 +47,7 @@
 						<label>Contraseña:</label>
 						<input type="password" name="passAdmin" class="form-control" placeholder="ingrese su contraseña" required>
 					</div>
-					<input type="submit" name="Ingresar1" class="btn boton-ejec">
+					<input type="submit" name="Ingresar1" class="btn">
 				</form>
 			</div>
 			<div id="Usuario" class="tabcontent">
@@ -67,7 +67,7 @@
 						<label>Contraseña:</label>
 						<input type="password" name="passEncu" class="form-control" placeholder="ingrese su contraseña">
 					</div>
-					<input type="submit" name="Ingresar2" class="btn boton-ejec">
+					<input type="submit" name="Ingresar2" class="btn">
 				</form>
 				<hr>
 				<div class="form-registro">
@@ -93,7 +93,7 @@
 						<label>Contraseña:</label>
 						<input type="password" name="passUsu" class="form-control" placeholder="ingrese su contraseña">
 					</div>
-					<input type="submit" name="Ingresar3" class="btn boton-ejec">
+					<input type="submit" name="Ingresar3" class="btn">
 				</form>	
 				<hr>
 				<div class="form-registro">
