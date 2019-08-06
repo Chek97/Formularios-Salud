@@ -72,9 +72,9 @@
 
 
 
-			$preguntas = $oPreguntas->obtenerId($idForm);
-
-			$objOpciones = new opciones();
+			
+			if($preguntas = $oPreguntas->obtenerId($idForm)){
+				$objOpciones = new opciones();
 
 			echo "<input type='hidden' name='np' value=".$numPreguntas.">";
 
@@ -113,10 +113,8 @@
 					$contadorPreg++;
 
 					if ($valor['requerido'] == "requerido") {
-						
-
-						?>
-						<div class="form-group">
+				?>		
+				<div class="form-group">
 							<label><?php echo $valor['textoPregunta']; ?> <span>(requerido)</span></label>
 							<br>
 							<?php foreach ($opciones as $op) { 
@@ -205,7 +203,16 @@
 		 ?>
 		 <input type="submit" class="btn" name="btnGuardar" value="Enviar Respuesta">
 
-		</form>
+		</form>		
+
+		<?php  		
+			}else{
+				echo "No hay preguntas";
+			}
+
+			?>
+
+						
 
 	</div>
 </div>
