@@ -270,7 +270,7 @@
 								</form>
 							</div>
 							<div class="modal-footer">
-									<button class="btn " data-dismiss="modal">Cancelar</button>
+									<button class="btn" data-dismiss="modal">Cancelar</button>
 							<script type="text/javascript">
 								(function(){
 									var formulario = document.getElementsByName("formularioUsuario")[0],

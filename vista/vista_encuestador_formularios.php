@@ -217,7 +217,7 @@
 										<label>Descripcion</label>
 										<textarea name="descripcion" class="form-control"></textarea>
 									</div>
-									<input class="btn boton-ejec" type="submit" name="crear-form" value="Aceptar">
+									<input class="btn btn-default" type="submit" name="crear-form" value="Aceptar">
 									</form>
 							</div>
 								

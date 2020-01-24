@@ -18,7 +18,7 @@
 </head>
 <body>
 				 	<div class="contenedor-titulo">
-						<h1><span><a href="#">logo</a></span>FORMULARIOS SALUTOGENESIS</h1>
+						<h1><span><img src="img/SAS_Proyectamos.png" class="imagen-logo"></span>FORMULARIOS SALUTOGENESIS</h1>
 					</div> 
 					<div class="perfil-registro">
 						<div class="row">
@@ -86,7 +86,7 @@
 					<h2 align="center">Usuario</h2>
 					<div class="form-group">
 						<label>Usuario:</label>
-						<span class="form-group-addon">@</span>
+						<span class="form-group-addon"></span>
 						<input type="text" name="userUsu" class="form-control" placeholder="ingrese su usuario">
 					</div>
 					<div class="form-group">
