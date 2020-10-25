@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
 	<title>Inicio</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
-
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	<?php include_once('Includes/header.php'); ?>
 </head>
 <body>
 				 	<div class="contenedor-titulo">
-						<h1><span><img src="img/SAS_Proyectamos.png" class="imagen-logo"></span>FORMULARIOS SALUTOGENESIS</h1>
+						<h1><span><img src="../Public/img/SAS_Proyectamos.png" class="imagen-logo"></span>FORMULARIOS SALUTOGENESIS</h1>
 					</div> 
 					<div class="perfil-registro">
 						<div class="row">
@@ -147,11 +135,6 @@
 
 
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
-        <script src="js/vendor/bootstrap.min.js"></script>
-
-        <script src="js/main.js"></script>
+        <?php include_once('Includes/footer.php'); ?>
 </body>
 </html>

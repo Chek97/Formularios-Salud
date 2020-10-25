@@ -47,9 +47,9 @@
 
 			foreach ($query as $reg) {
 				
-				$this->$nombre = $reg['nombre'];
-				$this->$usuario = $reg['usuario'];
-				$this->$contraseña = $reg['contraseña'];
+				$this->nombre = $reg['nombre'];
+				$this->usuario = $reg['usuario'];
+				$this->contraseña = $reg['contraseña'];
 			}
 		}
 
