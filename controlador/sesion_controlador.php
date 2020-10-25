@@ -29,7 +29,7 @@
 			$sessionUsuario->setSession($valorUsuario1);
 			$usuario->setUsuario($valorUsuario1);
 
-			header("location: ../vista/vista_administrador.php");
+			header("location: ../vista/Admin/AdminMainPage.php");
 		}else{
 			echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
 			header("location: ../index.php?error=true");

@@ -6,14 +6,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
 	<title>Mision</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Squada+One&display=swap" rel="stylesheet"> 
-
-    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+	<?php include_once('../Includes/header.php'); ?>
 </head>
 <body>
 	<nav class="navbar navbar-personalizado"> 
@@ -24,20 +18,21 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="vista_administrador.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="../Admin/AdminMainPage.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
-					<li><a href="vista_admin_formulario.php">Formularios</a></li>
-					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
-					<li><a href="vista_admin_buscar.php">Busqueda</a></li>
+				<!--DEBEMOS MANEJAR LA SESSION PARA MANDARLO A LAS DIFERENTES INICIOS DE PAGINA ADMIN, ENCUESTADOR, USER -->
+					<li><a href="../Admin/AdminFormPage.php">Formularios</a></li>
+					<li><a href="../Admin/AdminUserPage.php">Usuarios</a></li>
+					<li><a href="../Admin/AdminSearchPage.php">busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
-								<li><a href="vista/acerca.php">Acerca de</a></li>
-								<li><a href="vista_perfil.php">Mi perfil</a></li>
+								<li><a href="about.php">Acerca de</a></li>
+								<li><a href="profile.php">Mi perfil</a></li>
 								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
 							</ul>
 					</li>
@@ -78,15 +73,6 @@
            <h3>Proyectamos S.A.S 2019</h3>
          </div>
        </div>
-
-
-
-	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
-        <script src="../js/vendor/bootstrap.min.js"></script>
-
-        <script src="../js/main.js"></script>
-
+	   <?php include_once('../Includes/footer.php'); ?>
 </body>
 </html>
