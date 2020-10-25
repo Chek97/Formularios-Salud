@@ -6,8 +6,8 @@
 		public static function BD(){
 
 		 try{
-			//Variable conexion que tiene todos los datos, la usaremos en todo el proyecto
-			$conexion = new PDO('mysql:host=localhost; dbname=formulario', 'adminform', 'admin1');
+			//Variable conexion que tiene todos los datos, la usaremos en todo el proyecto adminform admin1
+			$conexion = new PDO('mysql:host=localhost; dbname=formulario', 'root', '');
 
 			$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$conexion->exec("SET CHARACTER SET UTF8");
