@@ -13,8 +13,8 @@
 </head>
 <?php 
 
-	include_once "../modelo/usuario.php";
-	include_once "../modelo/session.php";
+	include_once "../../modelo/usuario.php";
+	include_once "../../modelo/session.php";
 
 	$sessionUsuario = new Session();
 	$usuario = new Usuario();
@@ -44,7 +44,7 @@
 			$sessionUsuario->setSession($valorUsuario2);
 			$usuario->setUsuario($valorUsuario2);
 
-			header("location: ../vista/vista_encuestador.php");
+			header("location: ../vista/Pollster/PollsterMainPage.php");
 		}else{
 			echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
 			header("location: ../index.php?error=true");
