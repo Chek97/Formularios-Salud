@@ -1,1 +1,1 @@
-<?php header('location: vista/vista_login.php') ?>
+<?php header('location: vista/Login/vista_login.php'); ?>

@@ -29,7 +29,7 @@
 			$sessionUsuario->setSession($valorUsuario1);
 			$usuario->setUsuario($valorUsuario1);
 
-			header("location: ../vista/vista_administrador.php");
+			header("location: ../vista/Admin/AdminMainPage.php");
 		}else{
 			echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
 			header("location: ../index.php?error=true");
@@ -44,7 +44,7 @@
 			$sessionUsuario->setSession($valorUsuario2);
 			$usuario->setUsuario($valorUsuario2);
 
-			header("location: ../vista/vista_encuestador.php");
+			header("location: ../vista/Pollster/PollsterMainPage.php");
 		}else{
 			echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
 			header("location: ../index.php?error=true");
@@ -58,7 +58,7 @@
 			$sessionUsuario->setSession($valorUsuario3);
 			$usuario->setUsuario($valorUsuario3);
 
-			header("location: ../vista/vista_usuarios.php");
+			header("location: ../vista/User/UserMainPage.php");
 		}else{
 			header("location: ../index.php?error=true");
 		}

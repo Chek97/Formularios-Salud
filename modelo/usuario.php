@@ -1,7 +1,7 @@
 <?php
 
     require_once('../modelo/conexion.php');
-	//Creamos la clase usuario
+	//Creamos la clase usuario ../
 
 	class Usuario extends Conectar{
 
