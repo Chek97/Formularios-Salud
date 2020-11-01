@@ -13,8 +13,8 @@
 </head>
 <?php 
 
-	include_once "../../modelo/usuario.php";
-	include_once "../../modelo/session.php";
+	include_once "../modelo/usuario.php";
+	include_once "../modelo/session.php";
 
 	$sessionUsuario = new Session();
 	$usuario = new Usuario();
@@ -58,7 +58,7 @@
 			$sessionUsuario->setSession($valorUsuario3);
 			$usuario->setUsuario($valorUsuario3);
 
-			header("location: ../vista/vista_usuarios.php");
+			header("location: ../vista/User/UserMainPage.php");
 		}else{
 			header("location: ../index.php?error=true");
 		}
