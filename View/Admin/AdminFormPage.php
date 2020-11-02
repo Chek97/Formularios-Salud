@@ -1,6 +1,6 @@
 <?php 
 
-	require_once("../../modelo/formularios_modelo.php");
+	require_once("../../modelo/Forms/forms.php");
  ?>
  <!DOCTYPE html>
  <html>

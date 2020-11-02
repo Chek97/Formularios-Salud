@@ -1,7 +1,7 @@
 <?php 
 
-	require_once("../../modelo/formularios_modelo.php");
-	require_once("../../modelo/usuarios_modelo.php");
+	require_once("../../modelo/Forms/forms.php");
+	require_once("../../modelo/User/users.php");
 
 
  ?>
@@ -41,7 +41,7 @@
 							<ul class="dropdown-menu">
 								<li><a href="../Includes/about.php">Acerca de</a></li>
 								<li><a href="../Includes/profile.php">Mi perfil</a></li>
-								<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
+								<li><a href="../../modelo/Session/exit.php">Salir</a></li>
 							</ul>
 					</li>
 				</ul>
@@ -113,7 +113,7 @@
 			<div class="col-xs-12 col-md-12 col-lg-6">
 				<div class="carta-usuario">
 					<div class="carta-usuario-titulo">
-						<a href="vista_actualizar_usuarios.php?id=<?php echo $fila1['idUsuario'] ?>&usuario=<?php echo $fila1['usuario']; ?>&nombre=<?php echo $fila1['nombre']; ?>&apellido=<?php echo $fila1['apellido'] ?>&correo=<?php echo $fila1['correo'] ?>&celular=<?php echo $fila1['celular'] ?>&contraseña=<?php echo $fila1['contraseña'] ?>&fecha=<?php echo $fila1['fecha'] ?>" class="carta-enlace1"><h2><span class="glyphicon glyphicon-user"> <?php echo $fila1["usuario"]; ?></span></h2></a>
+						<a href="AdminUserUpdate.php?id=<?php echo $fila1['idUsuario'] ?>&usuario=<?php echo $fila1['usuario']; ?>&nombre=<?php echo $fila1['nombre']; ?>&apellido=<?php echo $fila1['apellido'] ?>&correo=<?php echo $fila1['correo'] ?>&celular=<?php echo $fila1['celular'] ?>&contraseña=<?php echo $fila1['contraseña'] ?>&fecha=<?php echo $fila1['fecha'] ?>" class="carta-enlace1"><h2><span class="glyphicon glyphicon-user"> <?php echo $fila1["usuario"]; ?></span></h2></a>
 					</div>
 					<div class="carta-usuario-contenido">
 						<div class="form-group">

@@ -1,1 +1,3 @@
-<?php header('location: vista/Login/vista_login.php'); ?>
+<?php 
+require_once('Config/routesConfig.php');
+header('location: ' . LOGIN_LINK); //View/Login/LoginPage.php ?>

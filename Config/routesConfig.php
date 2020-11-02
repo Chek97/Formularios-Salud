@@ -1,12 +1,12 @@
 <?php
     //DEFINE CONSTANTS
     //INIT
-    define('INIT_LINK', 'localhost/Proyectos/formulariosSalud');
+    define('INIT_LINK', 'Proyectos/formulariosSalud');
 
-    define('LOGIN_LINK', INIT_LINK . '/vista/vista_login.php');
+    define('LOGIN_LINK', 'View/Login/LoginPage.php');
 
     //SUB MENU
-    define('MENU_ABOUT', INIT_LINK . '/vista/vista_acerca.php');
+    define('MENU_ABOUT', 'View/Includes/about.php');//arreglar estas rutas 
     define('MENU_PROFILE', INIT_LINK . '/vista/vista_perfil.php');
 
     //ADMIN ROUTES
