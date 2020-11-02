@@ -10,7 +10,7 @@
 		//Constructor
 		public function __construct(){
 			//llamamos la conexion
-			require_once('conexion.php');
+			require_once('../../modelo/conexion.php');
 
 			$this->db=Conectar::BD();
 

@@ -14,9 +14,9 @@
 	<?php 
 
 
-		require_once("../../modelo/formularios_modelo.php");
-		include_once("../../controlador/sesion_controlador.php");
-		include_once("../../modelo/usuario.php");
+		require_once("../../modelo/Forms/forms.php");
+		include_once("../../controlador/Session/session.php");
+		include_once("../../modelo/User/user.php");
 		$oFormularios = new Formulario_modelo();
 
 		

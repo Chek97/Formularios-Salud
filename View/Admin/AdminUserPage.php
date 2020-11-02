@@ -1,7 +1,7 @@
 <?php 
 
-	include_once "../../modelo/usuario.php";
-	include_once "../../modelo/session.php";
+	include_once "../../modelo/User/user.php";
+	include_once "../../modelo/Session/session.php";
 	include_once "../../controlador/usuarios_controlador.php";
 
 	$sessionUsuario = new Session();

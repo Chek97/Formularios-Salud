@@ -1,6 +1,6 @@
 <?php 
 
-	require_once("../modelo/usuarios_modelo.php");
+	require_once("../../modelo/User/users.php");
 
 	$insUsuario = new Usuarios_modelo();
 

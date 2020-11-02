@@ -13,8 +13,8 @@
 </head>
 <?php 
 
-	include_once "../modelo/usuario.php";
-	include_once "../modelo/session.php";
+	include_once "../../modelo/User/user.php";
+	include_once "../../modelo/Session/session.php";
 
 	$sessionUsuario = new Session();
 	$usuario = new Usuario();
@@ -29,10 +29,10 @@
 			$sessionUsuario->setSession($valorUsuario1);
 			$usuario->setUsuario($valorUsuario1);
 
-			header("location: ../vista/Admin/AdminMainPage.php");
+			header("location: ../../vista/Admin/AdminMainPage.php");
 		}else{
 			echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
-			header("location: ../index.php?error=true");
+			header("location: ../../index.php?error=true");
 		}
 
 	}else if (isset($_POST['Ingresar2'])) {
@@ -44,10 +44,10 @@
 			$sessionUsuario->setSession($valorUsuario2);
 			$usuario->setUsuario($valorUsuario2);
 
-			header("location: ../vista/Pollster/PollsterMainPage.php");
+			header("location: ../../vista/Pollster/PollsterMainPage.php");
 		}else{
 			echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
-			header("location: ../index.php?error=true");
+			header("location: ../../index.php?error=true");
 		}
 	}else if (isset($_POST['Ingresar3'])) {
 		$valorUsuario3 = $_POST['userUsu'];
@@ -58,9 +58,9 @@
 			$sessionUsuario->setSession($valorUsuario3);
 			$usuario->setUsuario($valorUsuario3);
 
-			header("location: ../vista/User/UserMainPage.php");
+			header("location: ../../vista/User/UserMainPage.php");
 		}else{
-			header("location: ../index.php?error=true");
+			header("location: ../../index.php?error=true");
 		}
 	}
 
