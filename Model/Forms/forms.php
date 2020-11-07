@@ -8,7 +8,7 @@
 
 		public function __construct(){
 			//llamamos la conexion
-			require_once('../../modelo/conexion.php');
+			require_once('../../Model/conexion.php');
 
 			$this->db=Conectar::BD();
 

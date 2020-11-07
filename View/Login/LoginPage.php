@@ -21,7 +21,7 @@
 			</div>
 		</div>
 		<div id="Admin" class="tabcontent">
-			<form action="../../controlador/Session/session.php" method="post" class="formulario">
+			<form action="../../Controller/Session/session.php" method="post" class="formulario">
 				<?php
 				if (isset($_GET['error'])) {
 					echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
@@ -41,7 +41,7 @@
 			</form>
 		</div>
 		<div id="Usuario" class="tabcontent">
-			<form action="../../controlador/Session/session.php" method="post" class="formulario">
+			<form action="../../Controller/Session/session.php" method="post" class="formulario">
 				<?php
 				if (isset($_GET['error'])) {
 					echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
@@ -66,7 +66,7 @@
 
 		</div>
 		<div id="Encuestado" class="tabcontent">
-			<form action="../../controlador/Session/session.php" method="post" class="formulario">
+			<form action="../../Controller/Session/session.php" method="post" class="formulario">
 				<?php
 				if (isset($_GET['error'])) {
 					echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";

@@ -1,8 +1,8 @@
 <?php 
 
-	include_once "../../modelo/User/user.php";
-	include_once "../../modelo/Session/session.php";
-	include_once "../../controlador/usuarios_controlador.php";
+	include_once "../../Model/User/user.php";
+	include_once "../../Model/Session/session.php";
+	include_once "../../Controller/usuarios_controlador.php";
 
 	$sessionUsuario = new Session();
 	$usuario = new Usuarios_modelo();

@@ -1,7 +1,9 @@
 <?php 
 
-	require_once("../../modelo/Forms/forms.php");
-	require_once("../../modelo/User/users.php");
+	//Require Files
+	include_once('../../Config/routesConfig.php');
+	require_once("../../Model/Forms/forms.php");
+	require_once("../../Model/User/users.php");
 
 
  ?>
@@ -31,17 +33,17 @@
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
-					<li><a href="AdminFormPage.php">Formularios</a></li>
-					<li><a href="AdminUserPage.php">Usuarios</a></li>
-					<li><a href="AdminSearchPage.php">busqueda</a></li>
+					<li><a href="<?php echo(ADMIN_FORMS); ?>">Formularios</a></li>
+					<li><a href="<?php echo(ADMIN_USERS); ?>">Usuarios</a></li>
+					<li><a href="<?php echo(ADMIN_SEARCH); ?>">busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
-								<li><a href="../Includes/about.php">Acerca de</a></li>
-								<li><a href="../Includes/profile.php">Mi perfil</a></li>
-								<li><a href="../../modelo/Session/exit.php">Salir</a></li>
+								<li><a href="../<?php echo(MENU_ABOUT); ?>">Acerca de</a></li>
+								<li><a href="../<?php echo(MENU_PROFILE); ?>">Mi perfil</a></li>
+								<li><a href="../../Model/Session/exit.php">Salir</a></li>
 							</ul>
 					</li>
 				</ul>
@@ -74,7 +76,7 @@
 					<div class="carta-formulario">
 						<div class="carta-titulo">
 							
-								<a href="AdminFormUpdate.php?id=<?php echo $fila['idFormularios'] ?>&titulo=<?php echo $fila['nombre'] ?>&descripcion=<?php echo $fila['descripcion'] ?>" class="carta-enlace"><h2><span class="glyphicon glyphicon-list-alt"> <?php echo $fila["nombre"]; ?></span></h2></a>
+								<a href="<?php echo(ADMIN_UPDATE_FORM); ?>?id=<?php echo $fila['idFormularios'] ?>&titulo=<?php echo $fila['nombre'] ?>&descripcion=<?php echo $fila['descripcion'] ?>" class="carta-enlace"><h2><span class="glyphicon glyphicon-list-alt"> <?php echo $fila["nombre"]; ?></span></h2></a>
 								
 						</div>
 						<div class="carta-contenido">
@@ -113,7 +115,7 @@
 			<div class="col-xs-12 col-md-12 col-lg-6">
 				<div class="carta-usuario">
 					<div class="carta-usuario-titulo">
-						<a href="AdminUserUpdate.php?id=<?php echo $fila1['idUsuario'] ?>&usuario=<?php echo $fila1['usuario']; ?>&nombre=<?php echo $fila1['nombre']; ?>&apellido=<?php echo $fila1['apellido'] ?>&correo=<?php echo $fila1['correo'] ?>&celular=<?php echo $fila1['celular'] ?>&contraseña=<?php echo $fila1['contraseña'] ?>&fecha=<?php echo $fila1['fecha'] ?>" class="carta-enlace1"><h2><span class="glyphicon glyphicon-user"> <?php echo $fila1["usuario"]; ?></span></h2></a>
+						<a href="<?php echo(ADMIN_UPDATE_USERS); ?>?id=<?php echo $fila1['idUsuario'] ?>&usuario=<?php echo $fila1['usuario']; ?>&nombre=<?php echo $fila1['nombre']; ?>&apellido=<?php echo $fila1['apellido'] ?>&correo=<?php echo $fila1['correo'] ?>&celular=<?php echo $fila1['celular'] ?>&contraseña=<?php echo $fila1['contraseña'] ?>&fecha=<?php echo $fila1['fecha'] ?>" class="carta-enlace1"><h2><span class="glyphicon glyphicon-user"> <?php echo $fila1["usuario"]; ?></span></h2></a>
 					</div>
 					<div class="carta-usuario-contenido">
 						<div class="form-group">

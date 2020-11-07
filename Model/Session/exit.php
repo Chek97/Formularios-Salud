@@ -1,6 +1,6 @@
 <?php 
 
-	include_once("../../modelo/Session/session.php");
+	include_once("../../Model/Session/session.php");
 
 	$oSession = new Session();
 

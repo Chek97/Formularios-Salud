@@ -1,12 +1,12 @@
 <?php 
 
-	require_once('../../modelo/User/users.php');
+	require_once('../../Model/User/users.php');
 
 	$oUsuarios = new usuarios_modelo();
 
 
 
-	require_once('../../vista/Admin/AdminUserPage.php');
+	require_once('../../View/Admin/AdminUserPage.php');
 
 
  ?>
