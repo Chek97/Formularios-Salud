@@ -1,6 +1,4 @@
 <?php 
-
-	//require_once("../modelo/formularios_modelo");
 	require_once("../../controlador/preguntas_controlador.php");
 	include_once("../../modelo/formularios_modelo.php");
 	include_once("../../controlador/opciones_controlador.php");
@@ -9,12 +7,9 @@
 		$idFormulario = $_GET['iden'];
 	}else{
 		$idFormulario = $_POST['Id'];
-
 	}
 
 	if(isset($_POST['btnCrear'])){
-
-
 		$oFormularios = new Formulario_modelo();
 
 		$inputDescripcion = $_POST['des'];
@@ -121,15 +116,13 @@
 				}else{
 					echo "No se inserto la pregunta";
 				}
-
 		}
 
 	}
 
- ?>
-
- <!DOCTYPE html>
- <html>
+?>
+<!DOCTYPE html>
+<html>
  <head>
  	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -156,20 +149,19 @@
 					<li><a href="#">Busqueda</a></li>
 					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
-							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-user"></span>
-							</div>
-							<ul class="dropdown-menu">
-								<li><a href="../Includes/about.php">Acerca de</a></li>
-								<li><a href="../Includes/profile.php">Mi perfil</a></li>
-								<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
-							</ul>
+						<div class="contenedo-usuario">
+							<img src=""><span class="glyphicon glyphicon-user"></span>
+						</div>
+						<ul class="dropdown-menu">
+							<li><a href="../Includes/about.php">Acerca de</a></li>
+							<li><a href="../Includes/profile.php">Mi perfil</a></li>
+							<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
+						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-
 	<div class="container">
 		<div class="contenedor-titulo" style="color: white;">
 			<h1>Crea Una Pregunta</h1>
@@ -286,7 +278,6 @@
 								}())
 			</script>	
 		</div>
-
 	<div class="footer-principal">
          <div class="footer-iconos">
            <p>Siguenos en: </p>
@@ -303,7 +294,6 @@
            <h3>Proyectamos S.A.S 2019</h3>
          </div>
        </div>	
-
 	<?php include_once('../Includes/footer.php'); ?>	 
  </body>
  </html>

@@ -10,21 +10,13 @@
 	<?php include_once('../Includes/header.php'); ?>
 </head>
 <body>
-
 	<?php 
-
-
 		require_once("../../modelo/Forms/forms.php");
 		include_once("../../controlador/Session/session.php");
 		include_once("../../modelo/User/user.php");
-		$oFormularios = new Formulario_modelo();
-
-		
-
-		
-	 ?>
-
-		<nav class="navbar navbar-personalizado"> 
+		$oFormularios = new Formulario_modelo();		
+	?>
+	<nav class="navbar navbar-personalizado"> 
 		<div class="container">
 			<div class="navbar-header">
 				<button class="navbar-toggle" data-toggle="collapse" data-target="#menu">
@@ -40,28 +32,21 @@
 					<li><a href="AdminUserPage.php">Usuarios</a></li>
 					<li><a href="AdminSearchPage.php">busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
-							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-user"></span>
-							</div>
-							<ul class="dropdown-menu">
-								<li><a href="../Includes/about.php">Acerca de</a></li>
-								<li><a href="../Includes/profile.php">Mi perfil</a></li>
-								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
-							</ul>
+						<div class="contenedo-usuario">
+							<img src=""><span class="glyphicon glyphicon-user"></span>
+						</div>
+						<ul class="dropdown-menu">
+							<li><a href="../Includes/about.php">Acerca de</a></li>
+							<li><a href="../Includes/profile.php">Mi perfil</a></li>
+							<li><a href="../controlador/salir_controlador.php">Salir</a></li>
+						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-
 	<?php 
-
- 		
-
 		$obtenerSe = $sessionUsuario->getSession();
-	
-
-		
 
 		if(!isset($_POST['btnActualizar'])){
 			$nombreTitulo = $_GET['titulo'];
@@ -71,12 +56,11 @@
 			$nombreTitulo = $_POST['actUsu'];
 			$nombreDescripcion = $_POST['actDes'];
 			$nombreId = $_POST['actId'];
-
 		}
+
 		$datosFormulario = $oFormularios->informacionFormulario($nombreTitulo);
 
 		if(isset($_POST['btnActualizar'])){
-
 			$inputTitulo = $_POST['actUsu'];
 			$inputDescripcion = $_POST['actDes'];
 			$inputId = $_POST['actId'];
@@ -92,8 +76,6 @@
 		foreach ($datosFormulario as $dato) {
 
 	 ?>
-
-
 	<div class="container" style="background-color: white; padding: 20px; border-radius: 5px; box-shadow: 10px 10px #503c42; margin-bottom: 40px;">
 		<div class="contenedor-titulo">
 			<h1>Actualizar Formulario</h1>
@@ -117,58 +99,31 @@
 				</form>	
 			</div>
 			<?php 
-
-				//DEBEMOS TRAER LA CANTIDAD DE PREGUNTAS Y UN BOTON PARA PODER VERLAS O ALGO ASI
-
 				if($dato['numeroPregunta']==0){
 					echo "<div class='col-xs-12 col-md-12 col-lg-6 alert alert-info' style='text-align: center;'>Este formulario no tiene preguntas</div>";
 				}else{
-
-					
-							
-							 
+					echo("algo debe aparecer aqui con respecto a los formularios");
 				}
 			 ?>
 		</div>
 	</div>
-
 	<?php } ?>
-
 	<div class="footer-principal">
-         <div class="footer-iconos">
+        <div class="footer-iconos">
            <p>Siguenos en: </p>
            <div class="menu-footer">
-             <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
-               <li><a href="#"><span class="icon-instagram"> Instagram</a></li>
-        		<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
-        		<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
-        		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
-              </ul>
+             	<ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
+               		<li><a href="#"><span class="icon-instagram"> Instagram</a></li>
+        			<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
+        			<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
+        			<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
+              	</ul>
             </div>
-         </div>
-         <div class="panel-footer">
+        </div>
+        <div class="panel-footer">
            <h3>Proyectamos S.A.S 2019</h3>
-         </div>
-       </div>
-
-    <?php 
-
- /*
-
- 	echo "<div class='col-xs-12 col-md-12 col-lg-6'>
-							<div style='text-align: center;'>
-							"
-							?>
-	<a href="../vista/vista_actualizar_preguntas.php?id1=<?php echo $nombreId; ?>&nump=<?php echo $dato['numeroPregunta']; ?>"><button class="btn btn-success btn-lg">Ver Preguntas</button></a>
-							<?php echo "</div>
-							</div>";
-	*/
-
-
-
-
- ?>   
-
+        </div>
+    </div>
 	<?php include_once('../Includes/footer.php'); ?>
 </body>
 </html>

@@ -25,14 +25,14 @@
 					<li><a href="PollsterFormPage.php">Formularios</a></li>
 					<li><a href="../vista_buscar.php">Busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
-							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-user"></span>
-							</div>
-							<ul class="dropdown-menu">
-								<li><a href="../Includes/about.php">Acerca de</a></li>
-								<li><a href="../Includes/profile.php">Mi perfil</a></li>
-								<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
-							</ul>
+						<div class="contenedo-usuario">
+							<img src=""><span class="glyphicon glyphicon-user"></span>
+						</div>
+						<ul class="dropdown-menu">
+							<li><a href="../Includes/about.php">Acerca de</a></li>
+							<li><a href="../Includes/profile.php">Mi perfil</a></li>
+							<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
+						</ul>
 					</li>
 				</ul>
 			</div>
@@ -40,7 +40,6 @@
 	</nav>
 
 	<?php 
-
 		require_once("../../modelo/formularios_modelo.php");
 		include_once("../../modelo/session.php");
 		include_once("../../modelo/usuarios_modelo.php");
@@ -50,27 +49,17 @@
 		$oUsuarios = new Usuarios_modelo();
 
 		$idUser = $oUsuarios->get_id($oSession->getSession());
-
 		$formulariosPropios = $oFormularios->obtenerPropios4($idUser);
-		
-
-
-
-	 ?>
-
+	?>
 	<div class="container" style="margin-bottom: 200px;">
 		<div class="contenedor-titulo" style="color: white;">
 			<h1>Formularios Recientes</h1>
 		</div>
 		<?php
-
 			if($formulariosPropios == null){
 			echo "<div class = 'alert alert-info' style='text-align: center;'> No hay formularios creados aun </div>";
-		}else{ 
-
-			foreach ($formulariosPropios as $reg) {
-				
-			
+			}else{ 
+				foreach ($formulariosPropios as $reg) {
 		 ?>
 		 <div class="col-xs-12 col-md-12 col-lg-6" style="margin-bottom: 20px;">
 		 	<div class="carta-formulario">
@@ -79,24 +68,21 @@
 		 		</div>
 		 		<div class="carta-contenido">
 		 			<div class="carta-descripcion" >
-								<p><?php echo $reg["descripcion"]; ?></p>
-							</div>
-							<div class="carta-preguntas" style="padding-bottom: 20px;">
-								<h3>Numero Preguntas: <?php echo $reg['numeroPregunta']; ?></h3>
-							</div>
+						<p><?php echo $reg["descripcion"]; ?></p>
+					</div>
+					<div class="carta-preguntas" style="padding-bottom: 20px;">
+						<h3>Numero Preguntas: <?php echo $reg['numeroPregunta']; ?></h3>
+					</div>
 		 		</div>
 		 	</div>
 		 </div>
-		<?php } 
-
-	}
-		?>
-
-		
+		<?php 
+				} 
+			}
+		?>	
 	</div>
-
 	<div class="footer-principal">
-         <div class="footer-iconos">
+        <div class="footer-iconos">
            <p>Siguenos en: </p>
            <div class="menu-footer">
              <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
@@ -106,12 +92,11 @@
         		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
               </ul>
             </div>
-         </div>
-         <div class="panel-footer">
-           <h3>Proyectamos S.A.S 2019</h3>
-         </div>
-       </div>
-
+        </div>
+        <div class="panel-footer">
+        <h3>Proyectamos S.A.S 2019</h3>
+        </div>
+    </div>
 	<?php include_once('../Includes/footer.php'); ?>
 </body>
 </html>
