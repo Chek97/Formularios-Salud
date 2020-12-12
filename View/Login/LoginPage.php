@@ -59,11 +59,6 @@
 				</div>
 				<input type="submit" name="Ingresar2" class="btn">
 			</form>
-			<hr>
-			<div class="form-registro">
-				<p>No tienes una cuenta? <a href="#">Registrate</a></p>
-			</div>
-
 		</div>
 		<div id="Encuestado" class="tabcontent">
 			<form action="../../Controller/Session/session.php" method="post" class="formulario">
@@ -87,7 +82,7 @@
 			</form>
 			<hr>
 			<div class="form-registro">
-				<p>No tienes una cuenta? <a href="#">Registrate</a></p>
+				<p>No tienes una cuenta? <a href="../Register/RegisterUser.php">Registrate</a></p>
 			</div>
 		</div>
 	</div>
