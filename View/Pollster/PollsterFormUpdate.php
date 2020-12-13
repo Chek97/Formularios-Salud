@@ -10,22 +10,13 @@
 	<?php include_once('../Includes/header.php'); ?>
 </head>
 <body>
-
 	<?php 
-
-
 		require_once("../../modelo/formularios_modelo.php");
 		include_once("../../controlador/sesion_controlador.php");
 		include_once("../../modelo/usuario.php");
-
 		$oFormularios = new Formulario_modelo();
-
-		
-
-		
 	 ?>
-
-		<nav class="navbar navbar-personalizado"> 
+	<nav class="navbar navbar-personalizado"> 
 		<div class="container">
 			<div class="navbar-header">
 				<button class="navbar-toggle" data-toggle="collapse" data-target="#menu">
@@ -52,16 +43,9 @@
 			</div>
 		</div>
 	</nav>
-
 	<?php 
-
- 		
-
 		$obtenerSe = $sessionUsuario->getSession();
 	
-
-		
-
 		if(!isset($_POST['btnActualizar'])){
 			$nombreTitulo = $_GET['titulo'];
 			$nombreDescripcion = $_GET['descripcion'];
@@ -70,8 +54,8 @@
 			$nombreTitulo = $_POST['actUsu'];
 			$nombreDescripcion = $_POST['actDes'];
 			$nombreId = $_POST['actId'];
-
 		}
+
 		$datosFormulario = $oFormularios->informacionFormulario($nombreTitulo);
 
 		if(isset($_POST['btnActualizar'])){
@@ -88,10 +72,7 @@
 		}
 
 		foreach ($datosFormulario as $dato) {
-
 	 ?>
-
-
 	<div class="container" style="background-color: white; padding: 20px; border-radius: 5px; box-shadow: 10px 10px #503c42; margin-bottom: 40px;">
 		<div class="contenedor-titulo">
 			<h1>Actualizar Formulario</h1>
@@ -121,19 +102,16 @@
 				if($dato['numeroPregunta']==0){
 					echo "<div class='col-xs-12 col-md-12 col-lg-6 alert alert-info' style='text-align: center;'>Este formulario no tiene preguntas</div>";
 				}else{
-
-					echo "<div class='col-xs-12 col-md-12 col-lg-6'>
+					echo("<div class='col-xs-12 col-md-12 col-lg-6'>
 							<div style='text-align: center;'>
 								<a href=''><button class='btn btn-success btn-lg'>Ver Preguntas</button></a>
 							</div>
-							</div>";
+						</div>");
 				}
 			 ?>
 		</div>
 	</div>
-
 	<?php } ?>
-
 	<div class="footer-principal">
          <div class="footer-iconos">
            <p>Siguenos en: </p>
@@ -150,9 +128,6 @@
            <h3>Proyectamos S.A.S 2019</h3>
          </div>
        </div>
-
-
-
 	<?php include_once('../Includes/footer.php'); ?>
 </body>
 </html>

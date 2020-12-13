@@ -1,12 +1,10 @@
 <?php 
-
 	include_once "../../Model/User/user.php";
 	include_once "../../Model/Session/session.php";
 	include_once "../../Controller/usuarios_controlador.php";
 
 	$sessionUsuario = new Session();
 	$usuario = new Usuarios_modelo();
-	//$musuario = new Usuarios_modelo();
 
 	if(isset($_POST['b'])){
 		$inputId = $_GET['id'];
@@ -15,6 +13,7 @@
 
 	if(isset($_POST['btnRegistrar'])){
 		$inputUsuario = $_POST['regUsu'];
+
 		if($usuario->validarUsuario($inputUsuario) == true){
 			echo "<script>alert('Ya existe un usuario: $inputUsuario'); </script>";
 		}else{
@@ -35,12 +34,7 @@
 		}
 		
 	}
-
-	//$sesion = $sessionUsuario->getSession();
-
-
- ?>
-
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,21 +63,19 @@
 					<li><a href="AdminUserPage.php">Usuarios</a></li>
 					<li><a href="AdminSearchPage.php">busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
-							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-user"></span>
-							</div>
-							<ul class="dropdown-menu">
-								<li><a href="../Includes/about.php">Acerca de</a></li>
-								<li><a href="../Includes/profile.php">Mi perfil</a></li>
-								<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
-							</ul>
+						<div class="contenedo-usuario">
+							<img src=""><span class="glyphicon glyphicon-user"></span>
+						</div>
+						<ul class="dropdown-menu">
+							<li><a href="../Includes/about.php">Acerca de</a></li>
+							<li><a href="../Includes/profile.php">Mi perfil</a></li>
+							<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
+						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
-	</nav>
-
-	<!--TABLA DE USUARIOS-->	
+	</nav>	
 	<div class="container">
 		<div style="text-align: center; font-size: 40px; font-family: 'Squada One', cursive; color: white;">
 			<h1>Usuarios</h1>
@@ -107,11 +99,8 @@
 						</tr>
 						</thead>
 						<?php 
-
-							
 							$sesion = $sessionUsuario->getSession();
 
-							//$listaUsuarios = $musuario->get_usuarios();
 							if(isset($_GET["pagina"])){
 								if($_GET["pagina"] == 1){
 									header("location: AdminUserPage.php");
@@ -122,76 +111,54 @@
 								$pagina = 1;
 							}
 							
-
 							$tamañoPagina = 5;
-
 							$empezar = ($pagina - 1) * $tamañoPagina;
-
 							$numFilas = $usuario->obtenerUsu();
-
 							$totalPaginas = ceil($numFilas / $tamañoPagina);
-
 							$listaUsuarios = $oUsuarios->get_usuarios($empezar, $tamañoPagina);
 
 							foreach ($listaUsuarios as $registro ) {
 
 								if($registro['idUsuario'] != 1){
-
-								
-								
+						?>
+						<tr class="tabla-elementos">
+							<td style="font-size: 20px; font-family: 'Squada One', cursive;"><?php echo $registro['idUsuario']; ?></td>
+							<td id="nombreUsu"><?php echo $registro['usuario']; ?></td>
+							<td><?php echo $registro['nombre']; ?></td>
+							<td><?php echo $registro['apellido']; ?></td>
+							<td><?php echo $registro['correo']; ?></td>
+							<td><?php echo $registro['celular']; ?></td>
+							<td><?php echo $registro['contraseña']; ?></td>
+							<td><?php echo $registro['fecha']; ?></td>
+							<td><?php echo $registro['sexo']; ?></td>
+							<td><a href="AdminUserUpdate.php?id=<?php echo $registro['idUsuario'] ?>&usuario=<?php echo $registro['usuario']; ?>&nombre=<?php echo $registro['nombre']; ?>&apellido=<?php echo $registro['apellido'] ?>&correo=<?php echo $registro['correo'] ?>&celular=<?php echo $registro['celular'] ?>&contraseña=<?php echo $registro['contraseña'] ?>&fecha=<?php echo $registro['fecha'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
+							<td><a href="#" onclick="confirmar(<?php echo $registro['idUsuario']; ?>)"><button class="btn btn-danger">Borrar</button></a></td>
 							
-						 ?>
-					<tr class="tabla-elementos">
-					<td style="font-size: 20px; font-family: 'Squada One', cursive;"><?php echo $registro['idUsuario']; ?></td>
-					<td id="nombreUsu"><?php echo $registro['usuario']; ?></td>
-					<td><?php echo $registro['nombre']; ?></td>
-					<td><?php echo $registro['apellido']; ?></td>
-					<td><?php echo $registro['correo']; ?></td>
-					<td><?php echo $registro['celular']; ?></td>
-					<td><?php echo $registro['contraseña']; ?></td>
-					<td><?php echo $registro['fecha']; ?></td>
-					<td><?php echo $registro['sexo']; ?></td>
-					<td><a href="AdminUserUpdate.php?id=<?php echo $registro['idUsuario'] ?>&usuario=<?php echo $registro['usuario']; ?>&nombre=<?php echo $registro['nombre']; ?>&apellido=<?php echo $registro['apellido'] ?>&correo=<?php echo $registro['correo'] ?>&celular=<?php echo $registro['celular'] ?>&contraseña=<?php echo $registro['contraseña'] ?>&fecha=<?php echo $registro['fecha'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
-					<td><a href="#" onclick="confirmar(<?php echo $registro['idUsuario']; ?>)"><button class="btn btn-danger">Borrar</button></a></td>
-							
-					</tr>
-
-
-						 <?php
-						 } 
+						</tr>
+						<?php
+						 		} 
 						 	}
-
-						  ?>
+						?>
 					</table>
 				</div>
 				<div class="contnedor-paginacion">
 				<?php 
+					echo "<ul class='pagination'>";
+					for($i = 1; $i<=$totalPaginas; $i++){
 
-		
+						if($i == $pagina){
+							echo "<li class='disabled'><a>". $i . "</a></li>";
+						}else{
+							echo "<li><a href='?pagina=" . $i . "'>". $i . "</a></li>";
+						}
+					}
+					echo "</ul>";
 
-		echo "<ul class='pagination'>";
-
-		for($i = 1; $i<=$totalPaginas; $i++){
-
-			if($i == $pagina){
-				echo "<li class='disabled'><a>". $i . "</a></li>";
-			}else{
-				echo "<li><a href='?pagina=" . $i . "'>". $i . "</a></li>";
-			}
-
-			
-
-		}
-
-		echo "</ul>";
-
-
- ?>
- </div>	
-				<div style="text-align: center; border-radius: 4px;">
-						<button class="btn btn-lg" data-toggle="modal" data-target="#crear" style="margin: 20px; border-radius: 4px; background-color: white;">Agregar</button>
-				</div>
-
+ 				?>
+ 			</div>	
+			<div style="text-align: center; border-radius: 4px;">
+				<button class="btn btn-lg" data-toggle="modal" data-target="#crear" style="margin: 20px; border-radius: 4px; background-color: white;">Agregar</button>
+			</div>
 				<div class="modal fade" id="crear">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -290,12 +257,9 @@
 						</div>
 					</div>
 				</div>
-				
 		</div>
 	</div>
 </div>
-
-
 <div class="footer-principal">
 	<div class="footer-iconos">
 		<p>Siguenos en: </p>

@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Inicio</title>
 	<?php include_once('../Includes/header.php'); ?>
 </head>
-
 <body>
 	<div class="contenedor-titulo">
 		<h1><span><img src="../../Public/img/SAS_Proyectamos.png" class="imagen-logo"></span>FORMULARIOS SALUTOGENESIS</h1>
@@ -23,10 +21,10 @@
 		<div id="Admin" class="tabcontent">
 			<form action="../../Controller/Session/session.php" method="post" class="formulario">
 				<?php
-				if (isset($_GET['error'])) {
-					echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
-					echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
-				}
+					if(isset($_GET['error'])) {
+						echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
+						echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
+					}
 				?>
 				<h2 align="center">Administrador</h2>
 				<div class="form-group">
@@ -43,10 +41,10 @@
 		<div id="Usuario" class="tabcontent">
 			<form action="../../Controller/Session/session.php" method="post" class="formulario">
 				<?php
-				if (isset($_GET['error'])) {
-					echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
-					echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
-				}
+					if (isset($_GET['error'])) {
+						echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
+						echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
+					}
 				?>
 				<h2 align="center">Encuestador</h2>
 				<div class="form-group">
@@ -59,14 +57,18 @@
 				</div>
 				<input type="submit" name="Ingresar2" class="btn">
 			</form>
+			<hr>
+			<div class="form-registro">
+				<p>No tienes una cuenta? <a href="#">Registrate</a></p>
+			</div>
 		</div>
 		<div id="Encuestado" class="tabcontent">
 			<form action="../../Controller/Session/session.php" method="post" class="formulario">
 				<?php
-				if (isset($_GET['error'])) {
-					echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
-					echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
-				}
+					if(isset($_GET['error'])) {
+						echo "<button class='close' aria-hidden='true' data-dismiss='modal'>&times;</button>";
+						echo "<div class='alert alert-danger'>Fallo en el inicio de session</div>";
+					}
 				?>
 				<h2 align="center">Usuario</h2>
 				<div class="form-group">
@@ -86,10 +88,6 @@
 			</div>
 		</div>
 	</div>
-
-
-	<!-- ARREGLAR ESTA PARTE, ESTAN DAÑANDO ESTE FOOTER O HACER UNO NUEVO-->
-
 	<div class="footer-principal">
 		<div class="footer-iconos">
 			<p>Siguenos en: </p>
@@ -108,5 +106,4 @@
 	</div>
 	<?php include_once('../Includes/footer.php'); ?>
 </body>
-
 </html>

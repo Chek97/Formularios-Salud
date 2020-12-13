@@ -1,8 +1,4 @@
-<?php 
-
-	require_once("../../modelo/formularios_modelo.php");
-
- ?>
+<?php require_once("../../modelo/formularios_modelo.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,70 +50,53 @@
 						<th colspan="2">Opciones</th>
 					</tr>
 				</thead>
-
 				<?php 
-
 					$insFormulario = new Formulario_modelo();
 
 					if(isset($_GET["pagina"])){
-								if($_GET["pagina"] == 1){
-									header("location: UserFormPage.php");
-								}else{
-									$pagina = $_GET["pagina"];
-								}
-						}else{
-							$pagina = 1;
-						}
+							if($_GET["pagina"] == 1){
+								header("location: UserFormPage.php");
+							}else{
+								$pagina = $_GET["pagina"];
+							}
+					}else{
+						$pagina = 1;
+					}
 
-						$tamañoPagina = 5;
-
-		$empezar = ($pagina - 1) * $tamañoPagina;
-
-		$numFilas = $insFormulario->obtenerForms();
-
-		$totalPaginas = ceil($numFilas / $tamañoPagina);
-
+					$tamañoPagina = 5;
+					$empezar = ($pagina - 1) * $tamañoPagina;
+					$numFilas = $insFormulario->obtenerForms();
+					$totalPaginas = ceil($numFilas / $tamañoPagina);
 					$listaForm = $insFormulario->get_formularios($empezar, $tamañoPagina);
 
 					foreach ($listaForm as $fila ) {
-
 				 ?>
-				 <tr>
+				<tr>
 				 	<td><?php echo $fila['idFormularios']; ?></td>
 				 	<td><?php echo $fila['nombre']; ?></td>
 				 	<td><?php echo $fila['descripcion']; ?></td>
 				 	<td><a href="AnswerFormPage.php?id=<?php echo $fila['idFormularios'] ?>&num=<?php echo $fila['numeroPregunta']; ?>"><button class="btn btn-warning">Responder</button></a></td>
-				 </tr>
+				</tr>
 				<?php } ?>
 			</table>
 		</div>
+		<div class="contnedor-paginacion">	
+			<?php
+				echo "<ul class='pagination'>";
+				for($i = 1; $i<=$totalPaginas; $i++){
 
-	<div class="contnedor-paginacion">	
-	<?php
-
-
-		echo "<ul class='pagination'>";
-		for($i = 1; $i<=$totalPaginas; $i++){
-
-			if($i == $pagina){
-				echo "<li class='disabled'><a>". $i . "</a></li>";
-			}else{
-				echo "<li><a href='?pagina=" . $i . "'>". $i . "</a></li>";
-			}
-
-		}
-	 echo "</ul>";
-
-
-				 ?>	
-
-		 </div>	
+					if($i == $pagina){
+						echo "<li class='disabled'><a>". $i . "</a></li>";
+					}else{
+						echo "<li><a href='?pagina=" . $i . "'>". $i . "</a></li>";
+					}
+				}
+				echo "</ul>";
+			?>	
+		</div>	
 	</div>
-
-
-
-	 <div class="footer-principal">
-         <div class="footer-iconos">
+	<div class="footer-principal">
+        <div class="footer-iconos">
            <p>Siguenos en: </p>
            <div class="menu-footer">
              <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
@@ -127,12 +106,11 @@
         		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
               </ul>
             </div>
-         </div>
-         <div class="panel-footer">
-           <h3>Proyectamos S.A.S 2019</h3>
-         </div>
-       </div>   
-
-	   <?php include_once('../Includes/footer.php'); ?>
+        </div>
+        <div class="panel-footer">
+          <h3>Proyectamos S.A.S 2019</h3>
+        </div>
+    </div>   
+	<?php include_once('../Includes/footer.php'); ?>
 </body>
 </html>

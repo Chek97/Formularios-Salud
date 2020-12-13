@@ -1,11 +1,6 @@
 <?php 
-
 	require_once("../../modelo/User/users.php");
-
 	$insUsuario = new Usuarios_modelo();
-
-	
-
  ?>
 <!DOCTYPE html>
 <html>
@@ -36,39 +31,30 @@
 					<li><a href="AdminUserPage.php">Usuarios</a></li>
 					<li><a href="AdminSearchPage.php">busqueda</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
-							<div class="contenedo-usuario">
-								<img src=""><span class="glyphicon glyphicon-user"></span>
-							</div>
-							<ul class="dropdown-menu">
-								<li><a href="../Includes/about.php">Acerca de</a></li>
-								<li><a href="../Includes/profile.php">Mi perfil</a></li>
-								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
-							</ul>
+						<div class="contenedo-usuario">
+							<img src=""><span class="glyphicon glyphicon-user"></span>
+						</div>
+						<ul class="dropdown-menu">
+							<li><a href="../Includes/about.php">Acerca de</a></li>
+							<li><a href="../Includes/profile.php">Mi perfil</a></li>
+							<li><a href="../controlador/salir_controlador.php">Salir</a></li>
+						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-
 	<?php 
-	
 		if(!isset($_POST['btnActualizar'])){
-
 			$nombreId = $_GET['id'];
-
-		
 			$nombreNombre = $_GET['nombre'];
 			$nombreApellido = $_GET['apellido'];
 			$nombreCorreo = $_GET['correo'];
 			$nombreCelular = $_GET['celular'];
 			$nombreContraseña = $_GET['contraseña'];
 			$nombreFecha = $_GET['fecha'];
-
 		}else{
-
 			$nombreId = $_POST['actId'];
-
-			
 			$nombreNombre = $_POST['actNom'];
 			$nombreApellido = $_POST['actApe'];
 			$nombreCorreo = $_POST['actCorr'];
@@ -77,21 +63,9 @@
 			$nombreFecha = $_POST['actFecha'];
 
 		}
-
-			
-
-		
-		//$listaDatos = $insUsuario->obtener_usuario($nombreUsuario);
-
-		//foreach ($listaDatos as $fil) {
-
-
-			
-		
-	 ?>
+	?>
 	<div class="container">
 		<?php 
-
 			if(isset($_POST['btnActualizar'])){
 				$inputId = $_POST['actId'];
 				$inputUsuario = $_POST['actUsu'];
@@ -102,16 +76,14 @@
 				$inputContraseña = $_POST['actCon'];
 				$inputFecha = $_POST['actFecha'];
 
-			if($insUsuario->actualizarUsuarios($inputId, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha)==true){
-				echo "<div class='alert alert-info'>Se actualizaron los datos</div>";
-				header("location: vista_admin_usuario.php");
-			}else{
-			echo "<div class='alert alert-danger'>Algo no se actualizo o no hubo cambios que realizar</div>";
+				if($insUsuario->actualizarUsuarios($inputId, $inputNombre, $inputApellido, $inputCorreo, $inputCelular, $inputContraseña, $inputFecha)==true){
+					echo "<div class='alert alert-info'>Se actualizaron los datos</div>";
+					header("location: vista_admin_usuario.php");
+				}else{
+					echo "<div class='alert alert-danger'>Algo no se actualizo o no hubo cambios que realizar</div>";
+				}
 			}
-		
-		}
-
-		 ?>
+		?>
 		<div class="contenedor-formulario">
 			<div class="contenedor-titulo">
 				<h1>Actualizar Usuario</h1>
@@ -160,21 +132,21 @@
 	</div>
 
 	<div class="footer-principal">
-         <div class="footer-iconos">
+        <div class="footer-iconos">
            <p>Siguenos en: </p>
            <div class="menu-footer">
-             <ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
-               <li><a href="#"><span class="icon-instagram"> Instagram</a></li>
-        		<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
-        		<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
-        		<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
-              </ul>
+             	<ul style="border-bottom: none;" class="nav nav-tabs menu-redes">
+               		<li><a href="#"><span class="icon-instagram"> Instagram</a></li>
+        			<li><a href="#"><span class="icon-facebook"> Facebook</a></li>
+        			<li><a href="#"><span class="icon-whatsapp"> WhatsApp</a></li>
+        			<li><a href="#"><span class="icon-twitter"> Twitter</a></li>
+             	 </ul>
             </div>
-         </div>
-         <div class="panel-footer">
+        </div>
+        <div class="panel-footer">
            <h3>Proyectamos S.A.S 2019</h3>
-         </div>
-       </div>
-	   <?php include_once('../Includes/footer.php'); ?>
+        </div>
+    </div>
+	<?php include_once('../Includes/footer.php'); ?>
 </body>
 </html>
