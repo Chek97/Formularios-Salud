@@ -1,12 +1,8 @@
 <?php 
-
     require_once("../../modelo/formularios_modelo.php");
     require_once("../../modelo/usuarios_modelo.php");
-
     include_once("../../modelo/session.php");
-
-
- ?>
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +15,7 @@
     <?php include_once('../Includes/header.php'); ?>
 </head>
 <body>
-
-	   <nav class="navbar navbar-personalizado"> 
+	<nav class="navbar navbar-personalizado"> 
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" data-toggle="collapse" data-target="#menu">
@@ -48,34 +43,21 @@
             </div>
         </div>
     </nav>
-
     <?php 
-
         $objFormularios = new Formulario_modelo();
-
         $totalForms = $objFormularios->obtenerUltimos4();
-
     ?>  
-
     <section class="seccion-formularios">
         <div class="titulo-inicio">
             <h1>Ultimos Formularios Creados</h1>
         </div>
         <div class="container">
             <div class="row">
-                <?php  
-                foreach ($totalForms as $fila) {
-            
-        
-
-
-                ?>
+                <?php foreach ($totalForms as $fila) { ?>
                 <div class="col-xs-12 col-md-12 col-lg-6">
                     <div class="carta-formulario">
                         <div class="carta-titulo">
-                            
-                                <h2><span class="glyphicon glyphicon-list-alt"> <?php echo $fila["nombre"]; ?></span></h2>
-                                
+                            <h2><span class="glyphicon glyphicon-list-alt"> <?php echo $fila["nombre"]; ?></span></h2>      
                         </div>
                         <div class="carta-contenido">
                             <div class="carta-descripcion">
@@ -90,8 +72,6 @@
                 </div>
                <?php } ?> 
         </section>        
-
-
         <div class="footer-principal">
          <div class="footer-iconos">
            <p>Siguenos en: </p>
@@ -108,7 +88,6 @@
            <h3>Proyectamos S.A.S 2019</h3>
          </div>
        </div>
-
        <?php include_once('../Includes/footer.php'); ?>
 </body>
 </html>
