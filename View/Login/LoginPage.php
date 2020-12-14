@@ -84,7 +84,7 @@
 			</form>
 			<hr>
 			<div class="form-registro">
-				<p>No tienes una cuenta? <a href="#">Registrate</a></p>
+				<p>No tienes una cuenta? <a href="../Register/RegisterUser.php">Registrate</a></p>
 			</div>
 		</div>
 	</div>
