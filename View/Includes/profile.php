@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Perfil</title>
-	<?php include_once('../Includes/header.php'); ?>
+	<?php include_once('header.php'); ?>
 </head>
 <body>
 	<nav class="navbar navbar-personalizado"> 
@@ -29,9 +29,6 @@
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
-					<li><a href="vista_admin_formulario.php">Formularios</a></li>
-					<li><a href="vista_admin_usuario.php">Usuarios</a></li>
-					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 							<div class="contenedo-usuario">
 								<img src=""><span class="glyphicon glyphicon-user"></span>
@@ -39,7 +36,7 @@
 							<ul class="dropdown-menu">
 								<li><a href="vista_acerca.php">Acerca de</a></li>
 								<li><a href="vista_perfil.php">Mi perfil</a></li>
-								<li><a href="../controlador/salir_controlador.php">Salir</a></li>
+								<li><a href="../../Model/Session/exit.php">Salir</a></li>
 							</ul>
 					</li>
 				</ul>
@@ -131,12 +128,7 @@
        </div>
 
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
-        <script src="../js/vendor/bootstrap.min.js"></script>
-
-        <script src="../js/main.js"></script>
+		<?php include('footer.php'); ?>
 
 </body>
 </html>
