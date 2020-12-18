@@ -11,9 +11,9 @@
 </head>
 <body>
 	<?php 
-		require_once("../../modelo/Forms/forms.php");
-		include_once("../../controlador/Session/session.php");
-		include_once("../../modelo/User/user.php");
+		require_once("../../Model/Forms/forms.php");
+		include_once("../../Controller/Session/session.php");
+		include_once("../../Model/User/user.php");
 		$oFormularios = new Formulario_modelo();		
 	?>
 	<nav class="navbar navbar-personalizado"> 
@@ -24,7 +24,7 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="vista_administrador.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="AdminMainPage.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
@@ -67,7 +67,7 @@
 
 			if($oFormularios->actualizarFormulario($inputTitulo, $inputDescripcion, $inputId)==true){
 				echo "<div class='alert alert-info container'>Se actualizo el formulario</div>";
-				header("location: vista_admin_formulario.php");
+				header("location: AdminFormPage.php");
 			}else{
 				echo "<div class='alert alert-danger container'>No se actualizo o no hay cambios que realizar</div>";
 			}
@@ -102,7 +102,7 @@
 				if($dato['numeroPregunta']==0){
 					echo "<div class='col-xs-12 col-md-12 col-lg-6 alert alert-info' style='text-align: center;'>Este formulario no tiene preguntas</div>";
 				}else{
-					echo("algo debe aparecer aqui con respecto a los formularios");
+					echo("<div class='col-xs-12 col-md-12 col-lg-6 alert alert-info' style='text-align: center;'>Este formulario tiene preguntas</div>");
 				}
 			 ?>
 		</div>

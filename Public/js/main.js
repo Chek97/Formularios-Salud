@@ -130,8 +130,6 @@ function crearPreguntas1(numero){
 
   //Selecciona el select y lo desaparece
   var select = document.getElementById("se1");
-    select.style.display="none";
-      
+    select.style.display="none";    
 
 }
-
