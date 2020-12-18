@@ -1,8 +1,8 @@
 <?php 
-	include_once("../../controlador/formularios_controlador.php");
-	include_once("../../modelo/usuarios_modelo.php");
-	include_once("../../controlador/sesion_controlador.php");
-	include_once("../../modelo/formularios_modelo.php");
+	include_once("../../Controller/formularios_controlador.php");
+	include_once("../../Model/User/users.php");
+	include_once("../../Controller/Session/session.php");
+	include_once("../../Model/Forms/forms.php");
 	$Um = new Usuarios_modelo();
 ?>
 <!DOCTYPE html>
@@ -30,8 +30,6 @@
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
 					<li><a href="PollsterFormPage.php">Formularios</a></li>
-					<li><a href="../vista_buscar.php">Busqueda</a></li>
-					<li><a href="#">Exportar</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">
 						<div class="contenedo-usuario">
 							<img src=""><span class="glyphicon glyphicon-user"></span>
@@ -39,7 +37,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="../Includes/about.php">Acerca de</a></li>
 							<li><a href="../Includes/profile.php">Mi perfil</a></li>
-							<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
+							<li><a href="../../Model/Session/exit.php">Salir</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -112,7 +110,7 @@
 						<td><?php echo $registro['numeroPregunta']; ?></td>
 						<td><?php echo $registro['voto']; ?></td>
 						<td><a href="PollsterFormUpdate.php?id=<?php echo $registro['idFormularios'] ?>&titulo=<?php echo $registro['nombre'] ?>&descripcion=<?php echo $registro['descripcion'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
-						<td><a href="../controlador/encuestador_borrar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&preguntas=<?php echo $registro['numeroPregunta'] ?>"><button class="btn btn-danger">Borrar</button></a></td>
+						<td><a href="../../Controller/encuestador_borrar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&preguntas=<?php echo $registro['numeroPregunta'] ?>"><button class="btn btn-danger">Borrar</button></a></td>
 						<td><a href="PollsterAddQuestion.php?iden=<?php echo $registro['idFormularios']; ?>"><button class="btn boton-primario">Crear Preguntas</button></a></td>		
 					</tr>
 					<?php 

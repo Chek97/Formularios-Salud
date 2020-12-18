@@ -1,9 +1,9 @@
 <?php 
 
-	require_once("../modelo/preguntas_modelo.php");
-	include_once("../modelo/opciones_modelo.php");
-	include_once("../modelo/respuestas_modelo.php");
-	include_once("../modelo/formularios_modelo.php");
+	require_once("../Model/preguntas_modelo.php");
+	include_once("../Model/opciones_modelo.php");
+	include_once("../Model/respuestas_modelo.php");
+	include_once("../Model/Forms/forms.php");
 
 
 	$oPreguntas = new Preguntas();
@@ -17,7 +17,7 @@
 	if($numeroPreguntas == 0){
 		if($obFormularios->borrarFormulario($idFormulario) == true){
 			echo "<div class='alert alert-info' style='margin-bottom: none;'>El formulario fue borrado</div>";
-			include_once("../vista/vista_encuestador_formularios.php");
+			include_once("../View/PollsterFormPage");
 		}else{
 			echo "<script>alert('los datos no se cambiaron correctamente, seguro recargaste la pagina por error, porfa intentalo otra vez')</script>";
 		}
@@ -103,16 +103,13 @@
 
 		if($obFormularios->borrarFormulario($idFormulario) == true){
 					echo "el formulario sin preguntas fue borrado";
-					header("location: ../vista/vista_encuestador_formularios.php");
+					header("location: ../View/PollsterFormPage");
 					echo "<br>";
 				}else{
 					echo "<div class='alert alert-warning'>El formulario no fue borrado</div>";
-					include_once("../vista/vista_encuestador_formularios.php");
+					include_once("../View/PollsterFormPage");
 					
 		}
 	}
-
-
-
 
  ?>

@@ -1,7 +1,7 @@
 <?php 
-	require_once("../../controlador/preguntas_controlador.php");
-	include_once("../../modelo/formularios_modelo.php");
-	include_once("../../controlador/opciones_controlador.php");
+	require_once("../../Controller/Pollster/preguntas_controlador.php");
+	include_once("../../Model/Forms/forms.php");
+	include_once("../../Controller/opciones_controlador.php");
 
 	if(!isset($_POST['btnCrear'])){
 		$idFormulario = $_GET['iden'];
@@ -50,7 +50,7 @@
 									}
 								}
 							}
-							header("location: vista_encuestador_formularios.php");
+							header("location: PollsterFormPage.php");
 						}else{
 							echo "Si se inserto pero no sumo a la pregunta";
 						}
@@ -88,7 +88,7 @@
 								}
 							}
 						}
-						header("location: vista_encuestador_formularios.php");
+						header("location: PollsterFormPage.php");
 					}else{
 						echo "Si se inserto pero no sumo a la pregunta";
 					}
@@ -107,7 +107,7 @@
 
 					if($oFormularios->setNumeroPregunta($nPreguntas, $idFormulario)==true){
 
-						header("location: vista_encuestador_formularios.php");
+						header("location: PollsterFormPage.php");
 
 					}else{
 						echo "Si se inserto pero no sumo a la pregunta";
