@@ -80,7 +80,6 @@
 		 <?php  }
 			}
 		 ?>
-		 	<hr class="hidden-md hidden-lg col-xs-12">
 		</div>	
 	</div>
 	<div style="text-align: center; color: white;">
