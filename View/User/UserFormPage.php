@@ -1,4 +1,4 @@
-<?php require_once("../../modelo/formularios_modelo.php"); ?>
+<?php require_once("../../Model/Forms/forms.php");?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +32,7 @@
 							<ul class="dropdown-menu">
 								<li><a href="../Includes/about.php">Acerca de</a></li>
 								<li><a href="../Includes/profile.php">Mi perfil</a></li>
-								<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
+								<li><a href="../../Model/Session/exit.php">Salir</a></li>
 							</ul>
 					</li>
 				</ul>
