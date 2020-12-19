@@ -1,7 +1,7 @@
 <?php
-	require_once("../../modelo/formularios_modelo.php");
-	include_once("../../controlador/preguntas_controlador.php");
-	include_once("../../controlador/opciones_controlador.php");
+	require_once("../../Model/Forms/forms.php");
+	include_once("../../Controller/Pollster/preguntas_controlador.php");
+	include_once("../../Controller/opciones_controlador.php");
 	$contador = 1;
 	$contadorPreg = 1;
 ?>
@@ -38,7 +38,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="../Includes/about.php">Acerca de</a></li>
 							<li><a href="../Includes/profile.php">Mi perfil</a></li>
-							<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
+							<li><a href="../../Model/Session/exit.php">Salir</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -50,7 +50,7 @@
 			<h1>Formulario</h1>
 		</div>
 		<div class="contenedor-formulario">
-			<form action="../controlador/respuestas_controlador.php" method="post">
+			<form action="../../Controller/Answers/respuestas_controlador.php" method="post">
 				<?php
 					if (!isset($_POST['btnGuardar'])) {
 						$idForm = $_GET['id'];

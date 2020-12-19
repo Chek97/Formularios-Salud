@@ -1,10 +1,10 @@
 <?php 
 
-	require_once("../modelo/respuestas_modelo.php");
-	include_once("../modelo/opciones_modelo.php");
-	require_once("../controlador/preguntas_controlador.php");
-	include_once("../modelo/session.php");
-	include_once("../modelo/usuarios_modelo.php");
+	require_once("../../Model/respuestas_modelo.php");
+	include_once("../../Model/opciones_modelo.php");
+	require_once("../Pollster/preguntas_controlador.php");
+	include_once("../../Model/Session/session.php");
+	include_once("../../Model/User/users.php");
 
 	$objRespuestas = new Respuestas();
 	$objOpciones = new Opciones();
@@ -39,13 +39,13 @@
 				}
 			$contador++;
 			}
-			header("location: ../vista/vista_usuarios_formularios.php");
+			header("location: ../../View/User/UserFormPage.php");
 			echo "<br>";
 
 		}else if(isset($_POST[$contador])){
 			if($objRespuestas->insertarRespuestas($_POST[$contador], $_POST['idp'.$i], $s)==true){
 				echo "La respuesta fue insertada";
-				header("location: ../vista/vista_usuarios_formularios.php");
+				header("location: ../../View/User/UserFormPage.php");
 			}else{
 				echo "La respuesta no se inserto";
 			}
@@ -59,10 +59,4 @@
 		}
 
 	}
-
-
-
-
-
-
  ?>
