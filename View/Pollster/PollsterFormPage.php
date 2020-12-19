@@ -110,7 +110,7 @@
 						<td><?php echo $registro['numeroPregunta']; ?></td>
 						<td><?php echo $registro['voto']; ?></td>
 						<td><a href="PollsterFormUpdate.php?id=<?php echo $registro['idFormularios'] ?>&titulo=<?php echo $registro['nombre'] ?>&descripcion=<?php echo $registro['descripcion'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
-						<td><a href="../../Controller/encuestador_borrar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&preguntas=<?php echo $registro['numeroPregunta'] ?>"><button class="btn btn-danger">Borrar</button></a></td>
+						<td><a href="../../Controller/Pollster/encuestador_borrar_formulario.php?id=<?php echo $registro['idFormularios'] ?>&preguntas=<?php echo $registro['numeroPregunta'] ?>"><button class="btn btn-danger">Borrar</button></a></td>
 						<td><a href="PollsterAddQuestion.php?iden=<?php echo $registro['idFormularios']; ?>"><button class="btn boton-primario">Crear Preguntas</button></a></td>		
 					</tr>
 					<?php 
