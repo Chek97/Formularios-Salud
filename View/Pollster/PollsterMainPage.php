@@ -40,9 +40,9 @@
 	</nav>
 
 	<?php 
-		require_once("../../modelo/formularios_modelo.php");
-		include_once("../../modelo/session.php");
-		include_once("../../modelo/usuarios_modelo.php");
+		require_once("../../Model/Forms/forms.php");
+		include_once("../../Model/Session/session.php");
+		include_once("../../Model/User/users.php");
 
 		$oFormularios = new Formulario_modelo();
 		$oSession = new Session();

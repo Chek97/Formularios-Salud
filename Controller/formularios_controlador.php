@@ -1,6 +1,6 @@
 <?php 
 
-	require_once("../../modelo/formularios_modelo.php");
+	require_once("../../Model/Forms/forms.php");
 
 	$oFormularios = new Formulario_modelo();
 	

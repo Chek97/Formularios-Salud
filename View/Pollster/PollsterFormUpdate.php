@@ -11,9 +11,9 @@
 </head>
 <body>
 	<?php 
-		require_once("../../modelo/formularios_modelo.php");
-		include_once("../../controlador/sesion_controlador.php");
-		include_once("../../modelo/usuario.php");
+		require_once("../../Model/Forms/forms.php");
+		include_once("../../Controller/Session/session.php");
+		include_once("../../Model/User/users.php");
 		$oFormularios = new Formulario_modelo();
 	 ?>
 	<nav class="navbar navbar-personalizado"> 
@@ -24,7 +24,7 @@
 					<span class="icon-bar app-bar"></span>
 					<span class="icon-bar app-bar"></span>
 				</button>
-				<a href="vista_encuestador_formulario.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
+				<a href="PollsterMainPage.php" class="navbar-brand link-personalizado"><span class="glyphicon glyphicon-search"></span> Formularios Salutogenesis</a>
 			</div>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="nav navbar-nav navbar-right nav-personalizado">
@@ -34,9 +34,9 @@
 								<img src=""><span class="glyphicon glyphicon-user"></span>
 							</div>
 							<ul class="dropdown-menu">
-							<li><a href="../Includes/about.php">Acerca de</a></li>
+								<li><a href="../Includes/about.php">Acerca de</a></li>
 								<li><a href="../Includes/profile.php">Mi perfil</a></li>
-								<li><a href="../../controlador/salir_controlador.php">Salir</a></li>
+								<li><a href="../../Model/Session/exit.php">Salir</a></li>
 							</ul>
 					</li>
 				</ul>
@@ -56,8 +56,6 @@
 			$nombreId = $_POST['actId'];
 		}
 
-		$datosFormulario = $oFormularios->informacionFormulario($nombreTitulo);
-
 		if(isset($_POST['btnActualizar'])){
 
 			$inputTitulo = $_POST['actUsu'];
@@ -71,6 +69,8 @@
 			}
 		}
 
+		$datosFormulario = $oFormularios->informacionFormulario($nombreTitulo);
+	
 		foreach ($datosFormulario as $dato) {
 	 ?>
 	<div class="container" style="background-color: white; padding: 20px; border-radius: 5px; box-shadow: 10px 10px #503c42; margin-bottom: 40px;">
