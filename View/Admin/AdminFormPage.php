@@ -81,7 +81,7 @@
 				 	<td><?php echo $fila['descripcion']; ?></td>
 				 	<td><?php echo $fila['numeroPregunta']; ?></td>
 				 	<td><?php echo $fila['voto']; ?></td>
-				 	<td><a href="AdminFormUpdate?id=<?php echo $fila['idFormularios'] ?>&titulo=<?php echo $fila['nombre'] ?>&descripcion=<?php echo $fila['descripcion'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
+				 	<td><a href="AdminFormUpdate.php?id=<?php echo $fila['idFormularios'] ?>&titulo=<?php echo $fila['nombre'] ?>&descripcion=<?php echo $fila['descripcion'] ?>"><button class="btn btn-success">Actualizar</button></a></td>
 				 	<td><a href="../../Controller/Admin/administrador_borrar_formulario.php?id=<?php echo $fila['idFormularios'] ?>&preguntas=<?php echo $fila['numeroPregunta'] ?>"><button class="btn btn-danger">Borrar</button></a></td>
 				</tr>
 				<?php } ?>
