@@ -19,6 +19,10 @@
 		//Metodo get
 		public function get_formularios($empezar, $tamaño){
 
+			if($tamaño == null){
+				return [];
+			}
+
 			$consulta = $this->db->query("SELECT * FROM formularios LIMIT $empezar, $tamaño");
 
 			if($consulta->rowCount()){
@@ -28,7 +32,7 @@
 				}
 
 			}else{
-				return false;
+				return [];
 			}
 			return $this->formularios;
 			
@@ -71,7 +75,7 @@
 				}
 
 			}else{
-				return false;
+				return [];
 			}
 			return $this->formularios;
 

@@ -21,11 +21,19 @@
 		//Metodo get
 		public function get_usuarios($empezar, $tamaño){
 
+			if($tamaño == null){
+				return [];
+			}
+
 			$consulta = $this->db->query("SELECT * FROM usuario LIMIT $empezar,$tamaño");
 
-			while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
-				
-				$this->usuarios[] = $fila;
+			if($consulta->rowCount()){
+				while ($fila = $consulta->fetch(PDO::FETCH_ASSOC)) {
+					
+					$this->usuarios[] = $fila;
+				}
+			}else{
+				return [];
 			}
 
 			return $this->usuarios;
