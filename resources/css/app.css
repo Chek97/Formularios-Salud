@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'source-sans';
+    src: url(../../public/fonts/SourceSansPro-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'source-sans-bold';
+    src: url(../../public/fonts/SourceSansPro-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'source-sans-light';
+    src: url(../../public/fonts/SourceSansPro-Light.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'source-sans';
+}
